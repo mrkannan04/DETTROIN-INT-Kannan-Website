@@ -26,9 +26,9 @@
   --footer-border: #E4E0D6;
 
   /* Hero Variables */
-  --hero-overlay: linear-gradient(to top, rgba(250, 249, 246, 0.95) 0%, rgba(250, 249, 246, 0.6) 50%, rgba(250, 249, 246, 0.2) 100%);
-  --hero-text: #0E2A3F;
-  --hero-text-muted: #3E5568;
+  --hero-overlay: linear-gradient(to top, rgba(7, 21, 34, 0.92) 0%, rgba(7, 21, 34, 0.65) 50%, rgba(7, 21, 34, 0.35) 100%);
+  --hero-text: #FFFFFF;
+  --hero-text-muted: #E2E8F0;
 
   /* Card shadow tokens */
   --shadow-card: 0 4px 20px rgba(14, 42, 63, 0.05);
@@ -59,9 +59,9 @@
   --footer-border: #2E3841;
 
   /* Hero Variables */
-  --hero-overlay: linear-gradient(to top, rgba(18, 24, 31, 0.95) 0%, rgba(18, 24, 31, 0.6) 50%, rgba(18, 24, 31, 0.3) 100%);
+  --hero-overlay: linear-gradient(to top, rgba(7, 21, 34, 0.95) 0%, rgba(7, 21, 34, 0.70) 50%, rgba(7, 21, 34, 0.40) 100%);
   --hero-text: #FFFFFF;
-  --hero-text-muted: #C7D0D8;
+  --hero-text-muted: #E2E8F0;
 
   /* Dark mode shadows & overlays */
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);

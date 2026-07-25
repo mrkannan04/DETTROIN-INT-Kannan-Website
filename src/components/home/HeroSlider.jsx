@@ -97,21 +97,22 @@ export const HeroSlider = () => {
           </div>
         )}
 
-        {/* Deep Multi-stop Dark/Light Gradient Overlay for Vivid Contrast */}
-        <div className="absolute inset-0 bg-[var(--hero-overlay)] pointer-events-none" />
+        {/* Deep Multi-stop Dark Vignette Gradient Overlay for Guaranteed Text Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071522]/95 via-[#071522]/65 to-black/40 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(7,21,34,0.5)_0%,transparent_85%)] pointer-events-none z-10" />
       </motion.div>
 
       {/* Hero Banner Content */}
-      <div className="relative z-20 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 pb-12 flex flex-col justify-center items-center text-center text-hero-text">
+      <div className="relative z-20 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 pb-12 flex flex-col justify-center items-center text-center">
         
         {/* Floating Eyebrow Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EXPO_OUT_EASING }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bg-secondary/40 backdrop-blur-md border border-border-hairline/30 text-xs md:text-sm text-gold-accent font-bold tracking-wide mb-6 shadow-lg"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md border border-[#F3C66B]/40 text-xs md:text-sm text-[#F3C66B] font-bold tracking-wide mb-6 shadow-xl"
         >
-          <Sparkles className="w-4 h-4 text-gold-accent" />
+          <Sparkles className="w-4 h-4 text-[#F3C66B]" />
           <span className="uppercase tracking-widest text-[11px] sm:text-xs">
             {isVideoMode ? "Campus Life Experience • 2026-27" : slide.badge}
           </span>
@@ -122,11 +123,11 @@ export const HeroSlider = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: EXPO_OUT_EASING }}
-          className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight max-w-4xl mb-4 font-serif text-hero-text drop-shadow-md"
+          className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight max-w-5xl mb-4 font-serif text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
         >
           <span>{isVideoMode ? "Empowering Young Minds for " : slide.title} </span>
           <br className="hidden sm:block" />
-          <span className="text-gold-accent italic font-normal">
+          <span className="text-[#F3C66B] italic font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {isVideoMode ? "Global Excellence" : slide.highlight}
           </span>
         </motion.h1>
@@ -136,7 +137,7 @@ export const HeroSlider = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: EXPO_OUT_EASING }}
-          className="text-sm sm:text-base md:text-xl text-hero-text-muted max-w-2xl font-normal leading-relaxed mb-8 drop-shadow-sm"
+          className="text-sm sm:text-base md:text-xl text-slate-100 font-medium max-w-3xl leading-relaxed mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.75)]"
         >
           {isVideoMode 
             ? "Krishna International School, Aligarh — A premier CBSE institution dedicated to intellectual rigor, holistic growth, and world-class innovation across 5 acres of eco-friendly campus." 
@@ -154,7 +155,7 @@ export const HeroSlider = () => {
           {/* Button 1: Click to Enroll */}
           <Link
             to="/enroll"
-            className="px-7 py-3.5 bg-gold-accent hover:opacity-90 text-white font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-gold hover:scale-105 active:scale-95 transition-all duration-200"
+            className="px-7 py-3.5 bg-[#D4AF37] hover:bg-[#c49f2f] text-[#091724] font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-xl border border-[#F3C66B] hover:scale-105 active:scale-95 transition-all duration-200"
           >
             Click to Enroll
           </Link>
@@ -162,9 +163,9 @@ export const HeroSlider = () => {
           {/* Button 2: Explore us */}
           <Link
             to="/about/overview"
-            className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-bg-accent-section/40 hover:bg-bg-accent-section/60 border border-border-hairline/40 text-hero-text font-bold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all duration-200 group"
+            className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900/60 hover:bg-slate-900/80 border border-white/30 text-white font-bold text-xs sm:text-sm backdrop-blur-md hover:scale-105 active:scale-95 transition-all duration-200 group"
           >
-            <div className="w-7 h-7 rounded-full bg-gold-accent text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div className="w-7 h-7 rounded-full bg-[#D4AF37] text-[#091724] flex items-center justify-center group-hover:scale-110 transition-transform">
               <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
             </div>
             <span>Explore Campus</span>
@@ -173,7 +174,7 @@ export const HeroSlider = () => {
           {/* Button 3: Pay School Fee */}
           <Link
             to="/admission/fee-payment"
-            className="px-7 py-3.5 rounded-full border-2 border-gold-accent text-hero-text hover:bg-gold-accent hover:text-white font-black text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-200 shadow-md"
+            className="px-7 py-3.5 rounded-full border-2 border-[#D4AF37] text-white hover:bg-[#D4AF37] hover:text-[#091724] font-black text-xs sm:text-sm uppercase tracking-wider backdrop-blur-sm hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
           >
             Pay School Fee
           </Link>
@@ -183,7 +184,7 @@ export const HeroSlider = () => {
 
       {/* Video Audio & Playback Controls */}
       {isVideoMode && (
-        <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-md p-1.5 rounded-full border border-white/20">
+        <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 bg-slate-900/70 backdrop-blur-md p-1.5 rounded-full border border-white/20">
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? "Pause video" : "Play video"}
@@ -205,7 +206,7 @@ export const HeroSlider = () => {
       <button
         onClick={prevSlide}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-kis-gold text-white hover:text-kis-navy backdrop-blur-sm transition-all hidden sm:block hover:scale-110"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/70 hover:bg-[#D4AF37] text-white hover:text-[#091724] backdrop-blur-md transition-all hidden sm:block hover:scale-110 border border-white/20"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
@@ -213,7 +214,7 @@ export const HeroSlider = () => {
       <button
         onClick={nextSlide}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-kis-gold text-white hover:text-kis-navy backdrop-blur-sm transition-all hidden sm:block hover:scale-110"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-slate-900/70 hover:bg-[#D4AF37] text-white hover:text-[#091724] backdrop-blur-md transition-all hidden sm:block hover:scale-110 border border-white/20"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -223,7 +224,7 @@ export const HeroSlider = () => {
         <button
           onClick={() => setIsVideoMode(true)}
           className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-            isVideoMode ? 'bg-kis-gold text-kis-navy shadow-md' : 'bg-white/20 text-white hover:bg-white/30'
+            isVideoMode ? 'bg-[#D4AF37] text-[#091724] shadow-md' : 'bg-slate-900/60 text-white hover:bg-slate-900/80 border border-white/20'
           }`}
         >
           Video Mode
@@ -231,7 +232,7 @@ export const HeroSlider = () => {
         <button
           onClick={() => setIsVideoMode(false)}
           className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-            !isVideoMode ? 'bg-kis-gold text-kis-navy shadow-md' : 'bg-white/20 text-white hover:bg-white/30'
+            !isVideoMode ? 'bg-[#D4AF37] text-[#091724] shadow-md' : 'bg-slate-900/60 text-white hover:bg-slate-900/80 border border-white/20'
           }`}
         >
           Slideshow Mode
