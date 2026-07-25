@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, MessageSquare, X, Send, Sparkles, User, HelpCircle } from 'lucide-react';
+import { Bot, X, Send, Sparkles, User, HelpCircle, Paperclip } from 'lucide-react';
 import { EXPO_OUT_EASING } from '../../utils/premiumMotion';
 
 const FAQ_DATA = [
@@ -30,34 +30,64 @@ const FAQ_DATA = [
   }
 ];
 
-export const AiAdmissionsChat = () => {
+const SUGGESTED_QUESTIONS = [
+  "What is the fee structure?",
+  "How to apply online?",
+  "CBSE Streams & Subjects?",
+  "School bus facilities?"
+];
+
+export const AiAdmissionsChat = ({ customPositionClass }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [hasUnread, setHasUnread] = useState(true);
   const [messages, setMessages] = useState([
     {
+      id: 1,
       sender: 'bot',
-      text: 'Hello! I am your AI Admissions Assistant (Preview). Ask me anything about fees, admission deadlines, CBSE curriculum, or campus life!'
+      text: 'Hello! I am your AI Admissions Assistant. Ask me anything about admissions, fee structures, CBSE curriculum, or campus life!'
     }
   ]);
 
   const chatEndRef = useRef(null);
+  const inputRef = useRef(null);
 
+  // Auto scroll to bottom of chat
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+    if (isOpen) {
+      chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, isTyping, isOpen]);
+
+  // Focus input on open
+  useEffect(() => {
+    if (isOpen) {
+      setHasUnread(false);
+      setTimeout(() => inputRef.current?.focus(), 200);
+    }
+  }, [isOpen]);
+
+  // Close on Escape keypress
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
   const handleSend = (textToSend) => {
     const query = (textToSend || inputMessage).trim();
     if (!query) return;
 
-    // Add User Message
-    const userMsg = { sender: 'user', text: query };
+    const userMsg = { id: Date.now(), sender: 'user', text: query };
     setMessages((prev) => [...prev, userMsg]);
     if (!textToSend) setInputMessage('');
     setIsTyping(true);
 
-    // Simulate AI thinking & matching
     setTimeout(() => {
       const lowerQuery = query.toLowerCase();
       const matched = FAQ_DATA.find((faq) =>
@@ -66,157 +96,175 @@ export const AiAdmissionsChat = () => {
 
       const botReply = matched
         ? matched.answer
-        : "Thank you for asking! For specific inquiries regarding " +
-          query +
-          ", please call our Admission Counselor directly at +91 94127 30005.";
+        : `Thank you for asking! For specific inquiries regarding "${query}", please call our Admission Desk directly at +91 94127 30005.`;
 
-      setMessages((prev) => [...prev, { sender: 'bot', text: botReply }]);
+      setMessages((prev) => [...prev, { id: Date.now() + 1, sender: 'bot', text: botReply }]);
       setIsTyping(false);
     }, 600);
   };
 
-  const [isNearFooter, setIsNearFooter] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const threshold = document.documentElement.scrollHeight - 350;
-      setIsNearFooter(scrollPosition >= threshold);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleKeyDownInput = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
 
   return (
     <>
-      {/* Floating Toggle Button with Footer Clearance Shift */}
+      {/* Sleek Circular Trigger Button (56px desktop / 52px tablet / 48px mobile) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle AI Admissions Assistant"
-        className={`fixed z-40 p-3.5 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center gap-2 group ${
-          isNearFooter ? 'bottom-24 right-4 sm:right-20' : 'bottom-6 right-4 sm:right-20'
-        }`}
+        aria-expanded={isOpen}
+        className={
+          customPositionClass ||
+          "fixed bottom-6 right-6 z-40 w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group focus:outline-none focus:ring-2 focus:ring-gold-accent cursor-pointer"
+        }
       >
-        <div className="relative">
-          <Bot className="w-6 h-6 text-navy-deep" />
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-accent border-2 border-navy-deep animate-ping" />
+        <div className="relative flex items-center justify-center">
+          <Bot className="w-6 h-6 sm:w-6.5 sm:h-6.5 text-navy-deep transform group-hover:rotate-12 transition-transform" />
+          {hasUnread && (
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-navy-deep animate-pulse" />
+          )}
         </div>
-        <span className="hidden sm:inline text-xs font-black uppercase tracking-wider pr-1">
-          AI Assistant <span className="opacity-75 text-[10px]">(Preview)</span>
-        </span>
       </button>
 
-      {/* Floating Chat Modal */}
+      {/* Chat Window: Responsive Floating Window (Desktop/Tablet) or Bottom Sheet (Mobile) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.92 }}
-            transition={{ duration: 0.35, ease: EXPO_OUT_EASING }}
-            className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[380px] bg-bg-secondary rounded-3xl overflow-hidden shadow-2xl border border-border-hairline flex flex-col h-[500px]"
+            transition={{ duration: 0.3, ease: EXPO_OUT_EASING }}
+            role="dialog"
+            aria-label="AI Admissions Assistant Chat"
+            className="fixed z-50 flex flex-col bg-bg-secondary border border-border-hairline shadow-2xl overflow-hidden
+                       max-sm:inset-x-0 max-sm:bottom-0 max-sm:h-[85vh] max-sm:rounded-t-3xl max-sm:border-t-2 max-sm:border-gold-accent
+                       sm:bottom-24 sm:right-6 sm:w-[380px] md:w-[400px] sm:h-[600px] sm:rounded-3xl"
           >
-            {/* Chat Header */}
-            <div className="bg-navy-deep text-white p-4 flex items-center justify-between border-b border-border-hairline shrink-0">
+            {/* Header */}
+            <div className="bg-navy-deep text-white px-5 py-4 flex items-center justify-between border-b border-white/10 shrink-0">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gold-accent/20 border border-gold-accent/40 flex items-center justify-center text-gold-accent">
-                  <Bot className="w-6 h-6" />
+                <div className="w-9 h-9 rounded-full bg-gold-accent/20 border border-gold-accent/40 flex items-center justify-center shrink-0">
+                  <img src="/school-logo.png" alt="KIS Logo" className="w-6 h-6 object-contain" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5">
-                    <h4 className="text-sm font-bold font-serif text-white">Admission AI Helper</h4>
-                    <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-gold-accent text-navy-deep">Preview</span>
-                  </div>
-                  <span className="text-[10px] text-emerald-accent flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-accent animate-pulse" />
-                    Active FAQ Dataset
-                  </span>
+                  <h3 className="text-sm font-bold text-white flex items-center gap-2 font-serif">
+                    <span>AI Assistant</span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-wider border border-emerald-500/30">
+                      Online
+                    </span>
+                  </h3>
+                  <p className="text-[11px] text-gray-300">Krishna International School</p>
                 </div>
               </div>
+
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-gold-accent text-white hover:text-navy-deep flex items-center justify-center transition-colors"
+                className="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-white transition-colors cursor-pointer"
+                aria-label="Close Chat"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Quick Questions Pills */}
-            <div className="p-2.5 bg-bg-accent-section border-b border-border-hairline flex items-center gap-2 overflow-x-auto no-scrollbar shrink-0">
-              {['Fee Structure', 'Admission Process', 'CBSE Curriculum', 'Hostel Info'].map((q, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleSend(q)}
-                  className="px-2.5 py-1 rounded-full bg-bg-secondary hover:bg-gold-accent text-navy-deep hover:text-navy-deep border border-border-hairline text-[11px] font-bold whitespace-nowrap transition-colors"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-
-            {/* Chat Messages Body */}
-            <div className="p-4 flex-grow overflow-y-auto space-y-3.5 bg-bg-primary">
-              {messages.map((msg, i) => (
+            {/* Messages Body */}
+            <div className="flex-grow p-4 sm:p-5 overflow-y-auto space-y-4 text-xs sm:text-sm bg-bg-primary/50">
+              {messages.map((msg) => (
                 <div
-                  key={i}
-                  className={`flex items-start gap-2.5 ${
-                    msg.sender === 'user' ? 'justify-end' : 'justify-start'
-                  }`}
+                  key={msg.id}
+                  className={`flex gap-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   {msg.sender === 'bot' && (
-                    <div className="w-7 h-7 rounded-xl bg-gold-accent text-navy-deep flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-gold-accent text-navy-deep flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                       <Bot className="w-4 h-4" />
                     </div>
                   )}
+
                   <div
-                    className={`max-w-[80%] p-3.5 rounded-2xl text-xs leading-relaxed font-normal shadow-sm ${
+                    className={`max-w-[80%] px-4 py-3 rounded-2xl leading-relaxed shadow-sm ${
                       msg.sender === 'user'
-                        ? 'bg-navy-deep text-white rounded-tr-none'
-                        : 'bg-bg-secondary text-navy-deep border border-border-hairline rounded-tl-none'
+                        ? 'bg-gold-accent text-navy-deep font-medium rounded-br-xs'
+                        : 'bg-bg-secondary text-navy-deep border border-border-hairline rounded-bl-xs'
                     }`}
                   >
                     {msg.text}
                   </div>
+
                   {msg.sender === 'user' && (
-                    <div className="w-7 h-7 rounded-xl bg-navy-deep text-gold-accent flex items-center justify-center text-xs shrink-0 mt-0.5 border border-gold-accent/30">
+                    <div className="w-7 h-7 rounded-full bg-navy-deep text-gold-accent flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                       <User className="w-4 h-4" />
                     </div>
                   )}
                 </div>
               ))}
 
+              {/* Typing indicator */}
               {isTyping && (
-                <div className="flex items-center gap-2 text-navy-muted text-xs italic p-2">
-                  <Bot className="w-4 h-4 text-gold-accent animate-spin" />
-                  <span>AI Assistant is typing...</span>
+                <div className="flex gap-2.5 items-center justify-start text-navy-muted">
+                  <div className="w-7 h-7 rounded-full bg-gold-accent text-navy-deep flex items-center justify-center shrink-0">
+                    <Bot className="w-4 h-4" />
+                  </div>
+                  <div className="bg-bg-secondary border border-border-hairline px-4 py-2.5 rounded-2xl flex items-center gap-1.5 shadow-sm">
+                    <span className="w-2 h-2 bg-gold-accent rounded-full animate-bounce" />
+                    <span className="w-2 h-2 bg-gold-accent rounded-full animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-2 h-2 bg-gold-accent rounded-full animate-bounce [animation-delay:0.4s]" />
+                  </div>
                 </div>
               )}
+
               <div ref={chatEndRef} />
             </div>
 
-            {/* Chat Input Field */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSend();
-              }}
-              className="p-3 bg-bg-secondary border-t border-border-hairline flex items-center gap-2 shrink-0"
-            >
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Ask about fees, curriculum, admissions..."
-                className="flex-grow text-xs px-3.5 py-2.5 rounded-xl bg-bg-primary text-navy-deep border border-border-hairline focus:outline-none focus:border-gold-accent"
-              />
-              <button
-                type="submit"
-                className="p-2.5 rounded-xl bg-gold-accent hover:bg-gold-accent/90 text-navy-deep font-bold transition-all shadow-md"
-              >
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
+            {/* Quick Suggested Questions Pills */}
+            <div className="px-4 py-2 bg-bg-secondary border-t border-border-hairline shrink-0 overflow-x-auto no-scrollbar">
+              <p className="text-[10px] uppercase font-bold text-navy-muted mb-1.5 flex items-center gap-1">
+                <HelpCircle className="w-3 h-3 text-gold-accent" /> Suggested Questions:
+              </p>
+              <div className="flex gap-1.5">
+                {SUGGESTED_QUESTIONS.map((q, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSend(q)}
+                    className="px-2.5 py-1 rounded-full bg-bg-accent-section hover:bg-gold-accent hover:text-navy-deep border border-border-hairline text-[11px] font-semibold text-navy-deep whitespace-nowrap transition-colors cursor-pointer"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            </div>
 
+            {/* Input Bar */}
+            <div className="p-3 bg-bg-secondary border-t border-border-hairline shrink-0">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSend();
+                }}
+                className="flex items-center gap-2 bg-bg-primary rounded-full p-1.5 border border-border-hairline focus-within:border-gold-accent transition-colors"
+              >
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  onKeyDown={handleKeyDownInput}
+                  placeholder="Ask a question..."
+                  className="flex-grow bg-transparent px-3 py-1.5 text-xs sm:text-sm text-navy-deep focus:outline-none"
+                />
+                
+                <button
+                  type="submit"
+                  disabled={!inputMessage.trim()}
+                  className="w-8 h-8 rounded-full bg-gold-accent text-navy-deep flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-40 transition-all cursor-pointer shrink-0"
+                  aria-label="Send Message"
+                >
+                  <Send className="w-4 h-4 stroke-[2.5]" />
+                </button>
+              </form>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

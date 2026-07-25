@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ArrowUp } from 'lucide-react';
 
-export const ScrollToTop = () => {
+export const ScrollToTop = ({ customPositionClass }) => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -38,7 +38,10 @@ export const ScrollToTop = () => {
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 p-3 bg-navy-deep text-gold-accent border-2 border-gold-accent rounded-full shadow-xl hover:bg-gold-accent hover:text-navy-deep hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none"
+          className={
+            customPositionClass ||
+            "fixed bottom-24 right-6 z-40 p-3 bg-navy-deep text-gold-accent border-2 border-gold-accent rounded-full shadow-xl hover:bg-gold-accent hover:text-navy-deep hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none"
+          }
         >
           <ArrowUp className="w-5 h-5 stroke-[2.5]" />
         </button>
