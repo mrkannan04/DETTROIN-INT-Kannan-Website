@@ -21,6 +21,7 @@ export const ProspectusModal = ({ isOpen, onClose, autoPrint = false, docInfo = 
   const docTitle = docInfo?.title || "Official School Prospectus 2026-27";
   const isFeeDoc = docTitle.toLowerCase().includes('fee');
   const isDisclosureDoc = docTitle.toLowerCase().includes('mandatory') || docTitle.toLowerCase().includes('cbse');
+  const isTcDoc = docTitle.toLowerCase().includes('transfer') || docTitle.toLowerCase().includes('tc');
 
   return (
     <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
@@ -76,7 +77,29 @@ export const ProspectusModal = ({ isOpen, onClose, autoPrint = false, docInfo = 
           </div>
 
           {/* Conditional Unique Document Body Rendering */}
-          {isFeeDoc ? (
+          {isTcDoc ? (
+            /* Unique Transfer Certificate PDF Content */
+            <div className="space-y-6">
+              <div className="text-center space-y-1">
+                <h2 className="text-2xl font-black text-navy-deep font-serif uppercase tracking-wider underline underline-offset-8 decoration-gold-accent">
+                  OFFICIAL TRANSFER CERTIFICATE
+                </h2>
+                <p className="text-xs text-navy-muted italic">CBSE Affiliation No. 2132338 • School Code: 60882</p>
+              </div>
+
+              <div className="p-6 bg-bg-accent-section rounded-2xl border border-border-hairline space-y-4 text-xs">
+                <p className="text-sm text-text-body font-medium leading-relaxed">
+                  This is to certify that the student record has been verified against the official General Register of Krishna International School, Delhi G.T. Road, Aligarh.
+                </p>
+                <div className="grid grid-cols-2 gap-4 border-t border-border-hairline pt-4 text-navy-deep font-semibold">
+                  <div>• Document Type: <span className="font-bold text-gold-accent">Transfer Certificate (TC)</span></div>
+                  <div>• Status: <span className="font-bold text-emerald-600">Digitally Verified & Valid</span></div>
+                  <div>• CBSE Bye-Laws Compliance: <span className="font-bold">Rule 14.1 Verified</span></div>
+                  <div>• Issued By: <span className="font-bold">Principal Office KIS</span></div>
+                </div>
+              </div>
+            </div>
+          ) : isFeeDoc ? (
             /* Unique Fee Structure Content */
             <div className="space-y-6">
               <h2 className="text-xl font-bold text-navy-deep font-serif border-b border-border-hairline pb-1">

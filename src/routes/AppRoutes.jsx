@@ -8,6 +8,7 @@ import { GalleryPage } from '../pages/GalleryPage';
 import { VacancyPage } from '../pages/VacancyPage';
 import { EnrollPage } from '../pages/EnrollPage';
 import { FeePaymentPage } from '../pages/FeePaymentPage';
+import { TransferCertificatePage } from '../pages/TransferCertificatePage';
 import { NoticesPage } from '../pages/NoticesPage';
 import { NoticeDetailPage } from '../pages/NoticeDetailPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
@@ -33,6 +34,7 @@ export const AppRoutes = () => {
           {/* Special Feature Pages */}
           <Route path="/enroll" element={<EnrollPage />} />
           <Route path="/admission/fee-payment" element={<FeePaymentPage />} />
+          <Route path="/admission/transfer-certificate" element={<TransferCertificatePage />} />
           <Route path="/notices" element={<NoticesPage />} />
           <Route path="/notices/:id" element={<NoticeDetailPage />} />
           <Route path="/events" element={<EventsPage />} />
