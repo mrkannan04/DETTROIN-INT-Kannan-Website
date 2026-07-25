@@ -59,7 +59,7 @@ export const HeroSlider = () => {
   const slide = heroSlides[currentIndex];
 
   return (
-    <div className="relative w-full h-[520px] sm:h-[620px] md:h-[700px] bg-kis-navy overflow-hidden">
+    <div className="relative w-full h-[520px] sm:h-[620px] md:h-[700px] bg-[#0E2A3F] overflow-hidden">
       
       {/* Background Media with Framer Motion Parallax */}
       <motion.div 
@@ -97,8 +97,8 @@ export const HeroSlider = () => {
           </div>
         )}
 
-        {/* Deep Multi-stop Dark Gradient Overlay for Maximum Text Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-kis-navy via-kis-navy/60 to-black/30" />
+        {/* Deep Multi-stop Dark Gradient Overlay for Vivid Photo Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A3F]/90 via-[#0E2A3F]/50 to-black/30 pointer-events-none" />
       </motion.div>
 
       {/* Hero Banner Content */}
