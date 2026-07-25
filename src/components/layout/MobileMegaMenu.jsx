@@ -11,32 +11,32 @@ export const MobileMegaMenu = ({ onClose }) => {
   };
 
   return (
-    <div className="w-full space-y-4 max-h-[75vh] overflow-y-auto pr-2 py-4">
+    <div className="w-full space-y-3 max-h-[75vh] overflow-y-auto pr-2 py-2">
       {mainNavigation.map((cat) => {
         const hasSubmenu = cat.items && cat.items.length > 0;
         const isExpanded = expandedId === cat.id;
 
         return (
-          <div key={cat.id} className="border-b border-white/10 pb-3">
+          <div key={cat.id} className="border-b border-border-hairline pb-2.5">
             {hasSubmenu ? (
               <div>
                 <button
                   onClick={() => toggleExpand(cat.id)}
-                  className="w-full flex items-center justify-between text-left text-lg font-bold uppercase tracking-wider text-white py-1"
+                  className="w-full flex items-center justify-between text-left text-base font-bold uppercase tracking-wider text-navy-deep py-1"
                 >
-                  <span className={isExpanded ? 'text-[#2EE6A6]' : 'text-white'}>
+                  <span className={isExpanded ? 'text-gold-accent' : 'text-navy-deep'}>
                     {cat.title}
                   </span>
                   {isExpanded ? (
-                    <ChevronDown className="w-5 h-5 text-[#2EE6A6]" />
+                    <ChevronDown className="w-5 h-5 text-gold-accent" />
                   ) : (
-                    <ChevronRight className="w-5 h-5 text-white/40" />
+                    <ChevronRight className="w-5 h-5 text-navy-muted" />
                   )}
                 </button>
 
                 {/* Submenu links accordion */}
                 {isExpanded && (
-                  <ul className="mt-3 ml-4 space-y-2.5 border-l-2 border-[#2EE6A6]/40 pl-3">
+                  <ul className="mt-2.5 ml-3 space-y-2 border-l-2 border-gold-accent/40 pl-3">
                     {cat.items.map((sub, idx) => (
                       <li key={idx}>
                         {sub.isExternal ? (
@@ -45,7 +45,7 @@ export const MobileMegaMenu = ({ onClose }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={onClose}
-                            className="flex items-center justify-between text-sm text-gray-300 hover:text-[#2EE6A6] py-1"
+                            className="flex items-center justify-between text-xs sm:text-sm font-semibold text-navy-muted hover:text-gold-accent py-1"
                           >
                             <span>{sub.name}</span>
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -54,7 +54,7 @@ export const MobileMegaMenu = ({ onClose }) => {
                           <Link
                             to={sub.path}
                             onClick={onClose}
-                            className="block text-sm text-gray-300 hover:text-[#2EE6A6] py-1"
+                            className="block text-xs sm:text-sm font-semibold text-navy-muted hover:text-gold-accent py-1"
                           >
                             {sub.name}
                           </Link>
@@ -68,7 +68,7 @@ export const MobileMegaMenu = ({ onClose }) => {
               <Link
                 to={cat.path}
                 onClick={onClose}
-                className="block text-lg font-bold uppercase tracking-wider text-white py-1 hover:text-[#2EE6A6]"
+                className="block text-base font-bold uppercase tracking-wider text-navy-deep py-1 hover:text-gold-accent"
               >
                 {cat.title}
               </Link>

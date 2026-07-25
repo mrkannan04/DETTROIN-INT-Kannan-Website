@@ -37,11 +37,11 @@ export const Breadcrumb = ({ items = [] }) => {
   });
 
   return (
-    <nav aria-label="Breadcrumb" className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-200 flex-wrap">
+    <nav aria-label="Breadcrumb" className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-navy-muted flex-wrap">
       {/* Home link is ALWAYS first and clickable */}
       <Link
         to="/"
-        className="hover:text-gold-accent focus:text-gold-accent outline-none focus:ring-2 focus:ring-gold-accent/50 rounded transition-colors inline-flex items-center gap-1.5 cursor-pointer hover:underline"
+        className="hover:text-gold-accent focus:text-gold-accent outline-none focus:ring-2 focus:ring-gold-accent/50 rounded transition-colors inline-flex items-center gap-1.5 cursor-pointer hover:underline text-navy-muted"
         title="Go to Homepage"
       >
         <Home className="w-3.5 h-3.5 text-gold-accent" />
@@ -66,7 +66,7 @@ export const Breadcrumb = ({ items = [] }) => {
             ) : (
               <Link
                 to={item.path}
-                className="hover:text-white focus:text-white outline-none focus:ring-2 focus:ring-gold-accent/50 rounded transition-colors hover:underline cursor-pointer"
+                className="text-navy-muted hover:text-navy-deep focus:text-navy-deep outline-none focus:ring-2 focus:ring-gold-accent/50 rounded transition-colors hover:underline cursor-pointer font-medium"
               >
                 {item.label}
               </Link>
