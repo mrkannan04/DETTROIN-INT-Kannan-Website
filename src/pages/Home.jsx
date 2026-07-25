@@ -6,7 +6,7 @@ import { AboutSection } from '../components/home/AboutSection';
 import { FeatureCards } from '../components/home/FeatureCards';
 import { StudentShowcase } from '../components/home/StudentShowcase';
 import { SchoolDashboardWidget } from '../components/home/SchoolDashboardWidget';
-import { CampusHotspotTour } from '../components/home/CampusHotspotTour';
+import { CampusVirtualTour } from '../components/home/CampusVirtualTour';
 import { AchievementsShowcase } from '../components/home/AchievementsShowcase';
 import { TestimonialCarousel } from '../components/home/TestimonialCarousel';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { Phone, ArrowRight } from 'lucide-react';
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-[#F7F9FC] text-slate-800">
+    <div className="min-h-screen bg-primary text-body">
       {/* 1. Scrolling Marquee Notice Ticker */}
       <NoticeTicker />
 
@@ -33,8 +33,8 @@ export const Home = () => {
       {/* 6. School Info Dashboard Widget */}
       <SchoolDashboardWidget />
 
-      {/* 7. Campus Hotspot Tour */}
-      <CampusHotspotTour />
+      {/* 7. Interactive Virtual Campus Tour */}
+      <CampusVirtualTour />
 
       {/* 8. Student Showcase */}
       <StudentShowcase />
