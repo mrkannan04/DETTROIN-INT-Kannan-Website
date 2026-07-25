@@ -197,3 +197,36 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
 }
+
+/* Print & PDF Export Styling: Hide Header, Footer, and Navbars to output clean, aligned PDF documents */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, nav, .print\:hidden, [role="navigation"] {
+    display: none !important;
+  }
+  #printable-prospectus {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  #printable-prospectus * {
+    color: #000000 !important;
+  }
+  #printable-prospectus .bg-\[\#091724\] {
+    background: #091724 !important;
+    color: #ffffff !important;
+  }
+  #printable-prospectus .bg-\[\#091724\] * {
+    color: #ffffff !important;
+  }
+}

@@ -63,6 +63,7 @@ export const DocumentDownloadCard = ({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         autoPrint={autoPrintMode}
+        docInfo={{ title, description, fileSize, href, fileName }}
       />
     </>
   );
