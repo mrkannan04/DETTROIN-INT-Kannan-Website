@@ -2,7 +2,7 @@ export const heroSlides = [
   {
     id: 1,
     image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop',
-    title: "Explore Limitless",
+    title: " ",
     highlight: "Possibilities of Knowledge",
     description: "We are committed to providing high-quality teaching and developing intellectually curious, self-motivated, enthusiastic young children with an endearing love of learning.",
     badge: "CBSE Affiliated Premier Campus"

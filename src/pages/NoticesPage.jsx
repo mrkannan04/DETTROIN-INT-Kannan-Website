@@ -4,11 +4,12 @@ import { PageBanner } from '../components/common/PageBanner';
 import { noticesData } from '../data/noticesData';
 import { Search, Calendar, FileText, Download, ArrowRight, Pin, Sparkles, Filter } from 'lucide-react';
 import { ImageReveal } from '../components/common/ImageReveal';
-import { DocumentDownloadCard } from '../components/common/DocumentDownloadCard';
+import { ProspectusModal } from '../components/common/ProspectusModal';
 
 export const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedNoticeDoc, setSelectedNoticeDoc] = useState(null);
 
   const categories = ['All', 'Academic', 'Admission', 'Exam', 'Events', 'Sports', 'Holiday'];
 
@@ -120,14 +121,18 @@ export const NoticesPage = () => {
                     {/* Right CTA Actions */}
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
                       {notice.pdfUrl && (
-                        <a
-                          href={notice.pdfUrl}
-                          download={notice.fileName}
-                          className="px-5 py-3 bg-bg-accent-section hover:bg-gold-accent text-navy-deep hover:text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 border border-border-hairline"
+                        <button
+                          onClick={() => setSelectedNoticeDoc({
+                            title: notice.title + " (Official Circular PDF)",
+                            description: notice.description,
+                            fileSize: "PDF Circular • Verified",
+                            fileName: notice.fileName || "Notice_Circular.pdf"
+                          })}
+                          className="px-5 py-3 bg-bg-accent-section hover:bg-gold-accent text-navy-deep hover:text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 border border-border-hairline group cursor-pointer"
                         >
-                          <Download className="w-4 h-4 text-gold-accent" />
+                          <Download className="w-4 h-4 text-gold-accent group-hover:text-white transition-colors" />
                           <span>PDF Circular</span>
-                        </a>
+                        </button>
                       )}
 
                       <Link
@@ -160,6 +165,16 @@ export const NoticesPage = () => {
         )}
 
       </div>
+
+      {/* Notice Circular PDF Modal Overlay */}
+      {selectedNoticeDoc && (
+        <ProspectusModal
+          isOpen={!!selectedNoticeDoc}
+          onClose={() => setSelectedNoticeDoc(null)}
+          autoPrint={true}
+          docInfo={selectedNoticeDoc}
+        />
+      )}
     </div>
   );
 };
