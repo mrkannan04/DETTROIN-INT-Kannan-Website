@@ -10,6 +10,17 @@ export const DocumentDownloadCard = ({
   fileName = "KIS_Prospectus_2026.pdf"
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [autoPrintMode, setAutoPrintMode] = useState(false);
+
+  const handleView = () => {
+    setAutoPrintMode(false);
+    setIsModalOpen(true);
+  };
+
+  const handleDownload = () => {
+    setAutoPrintMode(true);
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -30,7 +41,7 @@ export const DocumentDownloadCard = ({
 
         <div className="flex items-center gap-3 shrink-0">
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleView}
             className="px-5 py-3 bg-gold-accent hover:opacity-90 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105"
           >
             <Eye className="w-4 h-4" />
@@ -38,10 +49,10 @@ export const DocumentDownloadCard = ({
           </button>
 
           <button
-            onClick={() => setIsModalOpen(true)}
-            className="px-5 py-3 bg-bg-accent-section hover:bg-gold-accent text-navy-deep hover:text-white border border-border-hairline text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105"
+            onClick={handleDownload}
+            className="px-5 py-3 bg-bg-accent-section hover:bg-gold-accent text-navy-deep hover:text-white border border-border-hairline text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105 group"
           >
-            <Download className="w-4 h-4 text-gold-accent" />
+            <Download className="w-4 h-4 text-gold-accent group-hover:text-white transition-colors" />
             <span>Download PDF</span>
           </button>
         </div>
@@ -51,6 +62,7 @@ export const DocumentDownloadCard = ({
       <ProspectusModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        autoPrint={autoPrintMode}
       />
     </>
   );

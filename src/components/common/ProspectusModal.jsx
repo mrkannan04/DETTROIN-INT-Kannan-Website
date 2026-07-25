@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Printer, Download, Award, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { Logo } from './Logo';
 
-export const ProspectusModal = ({ isOpen, onClose }) => {
+export const ProspectusModal = ({ isOpen, onClose, autoPrint = false }) => {
+  useEffect(() => {
+    if (isOpen && autoPrint) {
+      const timer = setTimeout(() => {
+        window.print();
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, autoPrint]);
+
   if (!isOpen) return null;
 
   const handlePrint = () => {
