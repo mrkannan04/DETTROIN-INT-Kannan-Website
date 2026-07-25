@@ -5,7 +5,7 @@ export const PageBanner = ({ title, subtitle, breadcrumb = [], bannerImage }) =>
   const defaultBg = "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop";
 
   return (
-    <div className="relative bg-bg-accent-section text-navy-deep overflow-hidden py-14 md:py-20 transition-colors duration-300">
+    <div className="relative bg-bg-accent-section text-navy-deep overflow-hidden pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 transition-colors duration-300">
       {/* Background Image with Theme-Aware Overlay for Legibility */}
       <div className="absolute inset-0 z-0">
         <img
