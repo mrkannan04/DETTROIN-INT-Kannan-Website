@@ -19,10 +19,10 @@ export const PageBanner = ({ title, subtitle, breadcrumb = [], bannerImage }) =>
       {/* Decorative Gold Accent Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-accent via-yellow-500/50 to-gold-accent z-10" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Breadcrumb navigation */}
         {breadcrumb.length > 0 && (
-          <div className="mb-3 flex justify-center md:justify-start">
+          <div className="mb-3 flex justify-center">
             <Breadcrumb items={breadcrumb} />
           </div>
         )}
@@ -31,7 +31,7 @@ export const PageBanner = ({ title, subtitle, breadcrumb = [], bannerImage }) =>
           {title}
         </h1>
         {subtitle && (
-          <p className="text-base md:text-lg text-gold-accent font-semibold max-w-2xl">
+          <p className="text-base md:text-lg text-gold-accent font-semibold max-w-2xl mx-auto">
             {subtitle}
           </p>
         )}

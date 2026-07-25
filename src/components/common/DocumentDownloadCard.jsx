@@ -19,9 +19,9 @@ export const DocumentDownloadCard = ({
             <FileText className="w-6 h-6 stroke-[2.2]" />
           </div>
           <div>
-            <h4 className="text-base font-bold text-kis-navy font-serif">{title}</h4>
+            <h4 className="text-base font-bold text-navy-deep font-serif">{title}</h4>
             <p className="text-xs text-text-body mt-0.5 font-medium">{description}</p>
-            <span className="inline-flex items-center gap-1 text-[10px] text-slate-400 font-semibold uppercase tracking-wider mt-1">
+            <span className="inline-flex items-center gap-1 text-[10px] text-navy-muted font-semibold uppercase tracking-wider mt-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-500" />
               {fileSize}
             </span>
@@ -31,7 +31,7 @@ export const DocumentDownloadCard = ({
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-5 py-3 bg-kis-gold hover:bg-kis-gold-hover text-kis-navy text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105"
+            className="px-5 py-3 bg-gold-accent hover:opacity-90 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105"
           >
             <Eye className="w-4 h-4" />
             <span>View Prospectus</span>
@@ -39,9 +39,9 @@ export const DocumentDownloadCard = ({
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-5 py-3 bg-kis-navy hover:bg-kis-navy-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105"
+            className="px-5 py-3 bg-bg-accent-section hover:bg-gold-accent text-navy-deep hover:text-white border border-border-hairline text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow hover:scale-105"
           >
-            <Download className="w-4 h-4 text-kis-gold" />
+            <Download className="w-4 h-4 text-gold-accent" />
             <span>Download PDF</span>
           </button>
         </div>

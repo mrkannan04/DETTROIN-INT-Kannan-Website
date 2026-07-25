@@ -79,7 +79,7 @@ export const NoticesPage = () => {
             {filteredNotices.map((notice) => (
               <ImageReveal key={notice.id}>
                 <div className={`bg-bg-secondary rounded-3xl p-6 sm:p-8 shadow-card border transition-all duration-300 hover:-translate-y-0.5 ${
-                  notice.isPinned ? 'border-kis-gold border-2 bg-gradient-to-r from-amber-50/40 to-white' : 'border-border-hairline'
+                  notice.isPinned ? 'border-gold-accent border-2 bg-gold-accent/5' : 'border-border-hairline'
                 }`}>
                   
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -88,25 +88,25 @@ export const NoticesPage = () => {
                       {/* Tags & Date */}
                       <div className="flex flex-wrap items-center gap-3">
                         {notice.isPinned && (
-                          <span className="inline-flex items-center gap-1 px-3 py-1 bg-kis-gold text-kis-navy font-black text-xs rounded-full uppercase tracking-wider shadow-sm">
+                          <span className="inline-flex items-center gap-1 px-3 py-1 bg-gold-accent text-white font-black text-xs rounded-full uppercase tracking-wider shadow-sm">
                             <Pin className="w-3.5 h-3.5 fill-current" />
                             Pinned Circular
                           </span>
                         )}
                         
-                        <span className="px-3 py-1 bg-kis-navy/10 text-kis-navy font-black text-xs rounded-full uppercase tracking-wider">
+                        <span className="px-3 py-1 bg-gold-accent/15 text-gold-accent font-black text-xs rounded-full uppercase tracking-wider">
                           {notice.category}
                         </span>
 
                         <div className="flex items-center gap-1.5 text-xs text-navy-muted font-semibold">
-                          <Calendar className="w-3.5 h-3.5 text-kis-gold" />
+                          <Calendar className="w-3.5 h-3.5 text-gold-accent" />
                           <span>{notice.date}</span>
                         </div>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl sm:text-2xl font-bold text-kis-navy font-serif leading-snug">
-                        <Link to={`/notices/${notice.id}`} className="hover:text-kis-gold transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-navy-deep font-serif leading-snug">
+                        <Link to={`/notices/${notice.id}`} className="hover:text-gold-accent transition-colors">
                           {notice.title}
                         </Link>
                       </h3>
@@ -123,16 +123,16 @@ export const NoticesPage = () => {
                         <a
                           href={notice.pdfUrl}
                           download={notice.fileName}
-                          className="px-5 py-3 bg-bg-accent-section hover:bg-slate-200 text-body text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 border border-border-hairline"
+                          className="px-5 py-3 bg-bg-accent-section hover:bg-gold-accent text-navy-deep hover:text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 border border-border-hairline"
                         >
-                          <Download className="w-4 h-4 text-kis-gold" />
+                          <Download className="w-4 h-4 text-gold-accent" />
                           <span>PDF Circular</span>
                         </a>
                       )}
 
                       <Link
                         to={`/notices/${notice.id}`}
-                        className="px-6 py-3 bg-kis-navy hover:bg-kis-navy-hover text-kis-gold font-black text-xs uppercase tracking-wider rounded-xl shadow transition-all flex items-center justify-center gap-2 hover:scale-105"
+                        className="px-6 py-3 bg-gold-accent hover:opacity-90 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow transition-all flex items-center justify-center gap-2 hover:scale-105"
                       >
                         <span>Read Circular</span>
                         <ArrowRight className="w-4 h-4" />
