@@ -3,6 +3,7 @@ import { PageBanner } from '../components/common/PageBanner';
 import { galleryCategories, galleryItems } from '../data/gallery';
 import { X, ZoomIn, Search, ChevronLeft, ChevronRight, Filter, Sparkles, Image as ImageIcon } from 'lucide-react';
 import { ImageReveal } from '../components/common/ImageReveal';
+import { FilterTabs } from '../components/common/FilterTabs';
 
 export const GalleryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -35,6 +36,12 @@ export const GalleryPage = () => {
         (cat === 'Kids Activities' && item.category === 'Kids Corner')
     ).length;
   };
+
+  const galleryTabs = galleryCategories.map(cat => ({
+    id: cat,
+    label: cat,
+    count: getCategoryCount(cat)
+  }));
 
   // Keyboard navigation for Lightbox (Left / Right / Escape)
   useEffect(() => {
@@ -109,35 +116,15 @@ export const GalleryPage = () => {
           </div>
 
           {/* Category Tabs Pill Bar */}
-          <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar justify-start sm:justify-center py-1">
-            {galleryCategories.map((cat) => {
-              const count = getCategoryCount(cat);
-              const isActive = selectedCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => {
-                    setSelectedCategory(cat);
-                    setVisibleCount(8);
-                  }}
-                  className={`min-h-[40px] px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shrink-0 flex items-center gap-2 border cursor-pointer ${
-                    isActive
-                      ? 'bg-gold-accent text-navy-deep border-gold-accent shadow-md scale-105'
-                      : 'bg-bg-secondary text-body hover:bg-bg-accent-section border-border-hairline'
-                  }`}
-                >
-                  <span>{cat}</span>
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
-                      isActive ? 'bg-navy-deep text-gold-accent' : 'bg-bg-accent-section text-navy-muted'
-                    }`}
-                  >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+          <FilterTabs
+            tabs={galleryTabs}
+            activeTab={selectedCategory}
+            onTabChange={(catId) => {
+              setSelectedCategory(catId);
+              setVisibleCount(8);
+            }}
+            containerClassName="justify-start sm:justify-center"
+          />
 
         </div>
       </div>

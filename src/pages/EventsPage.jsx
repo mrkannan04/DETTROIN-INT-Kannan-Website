@@ -3,6 +3,7 @@ import { PageBanner } from '../components/common/PageBanner';
 import { eventsData } from '../data/events';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 import { ImageReveal } from '../components/common/ImageReveal';
+import { FilterTabs } from '../components/common/FilterTabs';
 
 export const EventsPage = () => {
   const [filter, setFilter] = useState('all');
@@ -11,6 +12,12 @@ export const EventsPage = () => {
     if (filter === 'all') return true;
     return evt.type === filter;
   });
+
+  const eventTabs = [
+    { id: 'all', label: 'All Events', count: eventsData.length },
+    { id: 'upcoming', label: 'Upcoming Events', count: eventsData.filter(e => e.type === 'upcoming').length },
+    { id: 'recent', label: 'Recent Events', count: eventsData.filter(e => e.type === 'recent').length }
+  ];
 
   return (
     <div className="min-h-screen bg-primary transition-colors duration-300">
@@ -24,40 +31,12 @@ export const EventsPage = () => {
       {/* Sticky Filter Bar */}
       <div className="sticky top-[60px] sm:top-[70px] z-30 bg-primary/95 backdrop-blur-md py-4 border-b border-border-hairline shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto no-scrollbar justify-start sm:justify-center py-1">
-            <button
-              onClick={() => setFilter('all')}
-              className={`min-h-[44px] px-6 sm:px-8 py-2.5 rounded-full text-sm sm:text-base font-bold uppercase tracking-wider transition-all shrink-0 flex items-center justify-center ${
-                filter === 'all'
-                  ? 'bg-kis-navy text-kis-gold shadow-md border-2 border-kis-navy'
-                  : 'bg-bg-secondary text-body hover:bg-bg-accent-section border border-border-hairline'
-              }`}
-            >
-              All Events ({eventsData.length})
-            </button>
-
-            <button
-              onClick={() => setFilter('upcoming')}
-              className={`min-h-[44px] px-6 sm:px-8 py-2.5 rounded-full text-sm sm:text-base font-bold uppercase tracking-wider transition-all shrink-0 flex items-center justify-center ${
-                filter === 'upcoming'
-                  ? 'bg-kis-navy text-kis-gold shadow-md border-2 border-kis-navy'
-                  : 'bg-bg-secondary text-body hover:bg-bg-accent-section border border-border-hairline'
-              }`}
-            >
-              Upcoming Events
-            </button>
-
-            <button
-              onClick={() => setFilter('recent')}
-              className={`min-h-[44px] px-6 sm:px-8 py-2.5 rounded-full text-sm sm:text-base font-bold uppercase tracking-wider transition-all shrink-0 flex items-center justify-center ${
-                filter === 'recent'
-                  ? 'bg-kis-navy text-kis-gold shadow-md border-2 border-kis-navy'
-                  : 'bg-bg-secondary text-body hover:bg-bg-accent-section border border-border-hairline'
-              }`}
-            >
-              Recent Events
-            </button>
-          </div>
+          <FilterTabs
+            tabs={eventTabs}
+            activeTab={filter}
+            onTabChange={(tabId) => setFilter(tabId)}
+            containerClassName="justify-start sm:justify-center"
+          />
         </div>
       </div>
 

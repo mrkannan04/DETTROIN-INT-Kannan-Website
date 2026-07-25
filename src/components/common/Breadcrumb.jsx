@@ -6,17 +6,17 @@ const getBreadcrumbPath = (label) => {
   const cleanLabel = String(label).trim().toLowerCase();
   
   if (cleanLabel === 'home') return '/';
-  if (cleanLabel === 'about' || cleanLabel === 'about us') return '/about/overview';
-  if (cleanLabel === 'admission' || cleanLabel === 'admissions') return '/admission/overview';
-  if (cleanLabel === 'academics') return '/academics/overview';
-  if (cleanLabel === 'co-curricular') return '/co-curricular/overview';
-  if (cleanLabel === 'portal') return '/portal/overview';
-  if (cleanLabel === 'events' || cleanLabel === 'school events') return '/events';
-  if (cleanLabel === 'gallery') return '/gallery';
-  if (cleanLabel === 'notices' || cleanLabel === 'notice' || cleanLabel === 'notice board') return '/notices';
-  if (cleanLabel === 'join us' || cleanLabel === 'vacancies' || cleanLabel === 'careers') return '/join-us';
-  if (cleanLabel === 'enroll' || cleanLabel === 'admission form') return '/enroll';
-  if (cleanLabel === 'fee payment') return '/admission/fee-payment';
+  if (cleanLabel.includes('about')) return '/about/overview';
+  if (cleanLabel.includes('admission') || cleanLabel.includes('admissions')) return '/admission/overview';
+  if (cleanLabel.includes('academic')) return '/academics/overview';
+  if (cleanLabel.includes('co-curricular') || cleanLabel.includes('curricular')) return '/co-curricular/overview';
+  if (cleanLabel.includes('portal')) return '/portal/overview';
+  if (cleanLabel.includes('event')) return '/events';
+  if (cleanLabel.includes('gallery') || cleanLabel.includes('photo')) return '/gallery';
+  if (cleanLabel.includes('notice') || cleanLabel.includes('circular')) return '/notices';
+  if (cleanLabel.includes('join') || cleanLabel.includes('career') || cleanLabel.includes('vacancy')) return '/join-us';
+  if (cleanLabel.includes('enroll')) return '/enroll';
+  if (cleanLabel.includes('fee')) return '/admission/fee-payment';
   
   const slug = cleanLabel.replace(/\s+/g, '-');
   return `/${slug}`;
@@ -27,7 +27,10 @@ export const Breadcrumb = ({ items = [] }) => {
 
   const processedItems = items.map((item) => {
     if (typeof item === 'object' && item.label) {
-      return { label: item.label, path: item.path || '/' };
+      return {
+        label: item.label,
+        path: (item.path && item.path !== '#') ? item.path : getBreadcrumbPath(item.label)
+      };
     }
     const labelStr = String(item);
     return {
