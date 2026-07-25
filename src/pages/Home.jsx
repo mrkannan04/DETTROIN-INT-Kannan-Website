@@ -9,6 +9,7 @@ import { SchoolDashboardWidget } from '../components/home/SchoolDashboardWidget'
 import { CampusVirtualTour } from '../components/home/CampusVirtualTour';
 import { LearningDashboardPreview } from '../components/home/LearningDashboardPreview';
 import { SustainabilityWidget } from '../components/home/SustainabilityWidget';
+import { AlumniTimeline } from '../components/home/AlumniTimeline';
 import { AchievementsShowcase } from '../components/home/AchievementsShowcase';
 import { TestimonialCarousel } from '../components/home/TestimonialCarousel';
 import { Link } from 'react-router-dom';
@@ -46,6 +47,9 @@ export const Home = () => {
 
       {/* 10. Green Campus Sustainability Dashboard */}
       <SustainabilityWidget />
+
+      {/* 11. Alumni Excellence & Legacy Timeline */}
+      <AlumniTimeline />
 
       {/* 9. Achievements & Awards Showcase */}
       <AchievementsShowcase />
