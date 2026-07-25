@@ -144,7 +144,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
             aria-label="AI Admissions Assistant Chat"
             className="fixed z-50 flex flex-col bg-bg-secondary border border-border-hairline shadow-2xl overflow-hidden
                        max-sm:inset-x-0 max-sm:bottom-0 max-sm:h-[82vh] max-sm:rounded-t-[28px] max-sm:border-t-2 max-sm:border-gold-accent
-                       sm:bottom-22 sm:right-6 sm:w-[380px] md:w-[400px] sm:h-[520px] md:h-[540px] sm:rounded-[24px]"
+                       sm:bottom-24 sm:right-6 sm:w-[380px] md:w-[400px] sm:h-[520px] md:h-[540px] sm:rounded-[24px]"
           >
             {/* Header */}
             <div className="bg-navy-deep text-white px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
