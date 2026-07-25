@@ -49,7 +49,7 @@ export const Header = () => {
 
         {/* Main Header Bar - Pixel Perfect Alignment */}
         <div
-          className={`w-full transition-all duration-300 bg-kis-navy border-b border-kis-gold/20 flex items-center justify-between ${
+          className={`w-full transition-all duration-300 bg-header-bg border-b border-header-border flex items-center justify-between ${
             isScrolled ? 'py-2 sm:py-2.5 shadow-lg' : 'py-3 sm:py-3.5'
           }`}
         >
@@ -57,8 +57,8 @@ export const Header = () => {
             <div className="flex items-center justify-between gap-2 min-h-[40px] sm:min-h-[44px]">
               
               {/* Brand Logo Banner */}
-              <Logo size={isScrolled ? 'small' : 'normal'} variant="light" showTagline={!isScrolled} />
-
+              <Logo size={isScrolled ? 'small' : 'normal'} variant="default" showTagline={!isScrolled} />
+ 
               {/* Right Action Controls - Perfectly Centered Height */}
               <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                 
@@ -67,27 +67,27 @@ export const Header = () => {
                   onClick={toggleTheme}
                   aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                   title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-kis-gold text-white hover:text-kis-navy border border-white/15 transition-all duration-200 flex items-center justify-center cursor-pointer group focus:outline-none"
+                  className="w-10 h-10 rounded-xl bg-bg-accent-section/50 hover:bg-gold-accent text-navy-deep hover:text-bg-secondary border border-border-hairline transition-all duration-200 flex items-center justify-center cursor-pointer group focus:outline-none"
                 >
                   {theme === 'dark' ? (
-                    <Sun className="w-5 h-5 text-kis-gold group-hover:text-kis-navy transition-transform duration-300 rotate-0 hover:rotate-90" />
+                    <Sun className="w-5 h-5 text-gold-accent group-hover:text-navy-deep transition-transform duration-300 rotate-0 hover:rotate-90" />
                   ) : (
-                    <Moon className="w-5 h-5 text-white group-hover:text-kis-navy transition-transform duration-300 -rotate-12 hover:rotate-0" />
+                    <Moon className="w-5 h-5 text-navy-deep group-hover:text-bg-secondary transition-transform duration-300 -rotate-12 hover:rotate-0" />
                   )}
                 </button>
-
+ 
                 <Link
                   to="/enroll"
                   onClick={() => setIsOverlayOpen(false)}
-                  className="hidden sm:inline-flex items-center justify-center h-10 px-4 sm:px-5 bg-kis-gold hover:bg-kis-gold-hover text-kis-navy font-black text-xs uppercase tracking-wider rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all"
+                  className="hidden sm:inline-flex items-center justify-center h-10 px-4 sm:px-5 bg-gold-accent hover:opacity-90 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all"
                 >
                   Click to Enroll
                 </Link>
-
+ 
                 <button
                   onClick={toggleOverlay}
                   aria-label={isOverlayOpen ? 'Close Menu' : 'Open Menu'}
-                  className="h-10 sm:h-11 px-3 sm:px-4 rounded-xl bg-white/10 hover:bg-kis-gold text-white hover:text-kis-navy border border-white/15 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-kis-gold group flex items-center justify-center gap-2 relative z-[70] cursor-pointer"
+                  className="h-10 sm:h-11 px-3 sm:px-4 rounded-xl bg-bg-accent-section/50 hover:bg-gold-accent text-navy-deep hover:text-bg-secondary border border-border-hairline transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold-accent group flex items-center justify-center gap-2 relative z-[70] cursor-pointer"
                 >
                   {isOverlayOpen ? (
                     <X className="w-5 h-5 stroke-[2.5] shrink-0" />
@@ -97,7 +97,7 @@ export const Header = () => {
                       {[...Array(9)].map((_, i) => (
                         <span
                           key={i}
-                          className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white group-hover:bg-kis-navy transition-colors"
+                          className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-navy-deep group-hover:bg-bg-secondary transition-colors"
                         />
                       ))}
                     </div>

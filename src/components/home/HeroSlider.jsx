@@ -59,7 +59,7 @@ export const HeroSlider = () => {
   const slide = heroSlides[currentIndex];
 
   return (
-    <div className="relative w-full h-[520px] sm:h-[620px] md:h-[700px] bg-[#0E2A3F] overflow-hidden">
+    <div className="relative w-full h-[520px] sm:h-[620px] md:h-[700px] bg-bg-primary overflow-hidden transition-colors duration-300">
       
       {/* Background Media with Framer Motion Parallax */}
       <motion.div 
@@ -97,21 +97,21 @@ export const HeroSlider = () => {
           </div>
         )}
 
-        {/* Deep Multi-stop Dark Gradient Overlay for Vivid Photo Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A3F]/90 via-[#0E2A3F]/50 to-black/30 pointer-events-none" />
+        {/* Deep Multi-stop Dark/Light Gradient Overlay for Vivid Contrast */}
+        <div className="absolute inset-0 bg-[var(--hero-overlay)] pointer-events-none" />
       </motion.div>
 
       {/* Hero Banner Content */}
-      <div className="relative z-20 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 pb-12 flex flex-col justify-center items-center text-center text-white">
+      <div className="relative z-20 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 pb-12 flex flex-col justify-center items-center text-center text-hero-text">
         
         {/* Floating Eyebrow Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EXPO_OUT_EASING }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs md:text-sm text-kis-gold font-bold tracking-wide mb-6 shadow-lg"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bg-secondary/40 backdrop-blur-md border border-border-hairline/30 text-xs md:text-sm text-gold-accent font-bold tracking-wide mb-6 shadow-lg"
         >
-          <Sparkles className="w-4 h-4 text-kis-gold" />
+          <Sparkles className="w-4 h-4 text-gold-accent" />
           <span className="uppercase tracking-widest text-[11px] sm:text-xs">
             {isVideoMode ? "Campus Life Experience • 2026-27" : slide.badge}
           </span>
@@ -122,11 +122,11 @@ export const HeroSlider = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: EXPO_OUT_EASING }}
-          className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight max-w-4xl mb-4 font-serif text-white drop-shadow-md"
+          className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight max-w-4xl mb-4 font-serif text-hero-text drop-shadow-md"
         >
           <span>{isVideoMode ? "Empowering Young Minds for " : slide.title} </span>
           <br className="hidden sm:block" />
-          <span className="text-kis-gold italic font-normal">
+          <span className="text-gold-accent italic font-normal">
             {isVideoMode ? "Global Excellence" : slide.highlight}
           </span>
         </motion.h1>
@@ -136,7 +136,7 @@ export const HeroSlider = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: EXPO_OUT_EASING }}
-          className="text-sm sm:text-base md:text-xl text-gray-200 max-w-2xl font-normal leading-relaxed mb-8 drop-shadow-sm"
+          className="text-sm sm:text-base md:text-xl text-hero-text-muted max-w-2xl font-normal leading-relaxed mb-8 drop-shadow-sm"
         >
           {isVideoMode 
             ? "Krishna International School, Aligarh — A premier CBSE institution dedicated to intellectual rigor, holistic growth, and world-class innovation across 5 acres of eco-friendly campus." 
@@ -154,7 +154,7 @@ export const HeroSlider = () => {
           {/* Button 1: Click to Enroll */}
           <Link
             to="/enroll"
-            className="px-7 py-3.5 bg-kis-gold hover:bg-kis-gold-hover text-kis-navy font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-gold hover:scale-105 active:scale-95 transition-all duration-200"
+            className="px-7 py-3.5 bg-gold-accent hover:opacity-90 text-white font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-gold hover:scale-105 active:scale-95 transition-all duration-200"
           >
             Click to Enroll
           </Link>
@@ -162,9 +162,9 @@ export const HeroSlider = () => {
           {/* Button 2: Explore us */}
           <Link
             to="/about/overview"
-            className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all duration-200 group"
+            className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-bg-accent-section/40 hover:bg-bg-accent-section/60 border border-border-hairline/40 text-hero-text font-bold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all duration-200 group"
           >
-            <div className="w-7 h-7 rounded-full bg-kis-gold text-kis-navy flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div className="w-7 h-7 rounded-full bg-gold-accent text-white flex items-center justify-center group-hover:scale-110 transition-transform">
               <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
             </div>
             <span>Explore Campus</span>
@@ -173,7 +173,7 @@ export const HeroSlider = () => {
           {/* Button 3: Pay School Fee */}
           <Link
             to="/admission/fee-payment"
-            className="px-7 py-3.5 rounded-full border-2 border-kis-gold text-white hover:bg-kis-gold hover:text-kis-navy font-black text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-200 shadow-md"
+            className="px-7 py-3.5 rounded-full border-2 border-gold-accent text-hero-text hover:bg-gold-accent hover:text-white font-black text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-200 shadow-md"
           >
             Pay School Fee
           </Link>

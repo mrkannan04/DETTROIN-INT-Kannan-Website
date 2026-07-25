@@ -58,26 +58,26 @@ export const Home = () => {
       <TestimonialCarousel />
 
       {/* 11. Final Call to Action Banner Strip */}
-      <section className="bg-kis-navy py-16 text-white relative overflow-hidden border-t-4 border-kis-gold">
+      <section className="bg-bg-accent-section py-16 text-navy-deep relative overflow-hidden border-t-4 border-gold-accent transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 font-serif">
             Begin Your Child's Journey to Excellence Today
           </h2>
-          <p className="text-sm sm:text-base text-kis-gold max-w-2xl mx-auto mb-8 font-medium">
+          <p className="text-sm sm:text-base text-gold-accent max-w-2xl mx-auto mb-8 font-semibold">
             Admissions open for Academic Session 2026-27 from Nursery to Class XII.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/enroll"
-              className="px-8 py-3.5 bg-kis-gold hover:bg-kis-gold-hover text-kis-navy font-black uppercase tracking-wider rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+              className="px-8 py-3.5 bg-gold-accent hover:opacity-90 text-white font-black uppercase tracking-wider rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
             >
               Fill Online Admission Form
             </Link>
             <a
               href="tel:+919837050000"
-              className="px-8 py-3.5 border-2 border-white text-white hover:bg-white hover:text-kis-navy font-extrabold uppercase tracking-wider rounded-full transition-all duration-200 flex items-center gap-2"
+              className="px-8 py-3.5 border-2 border-navy-deep text-navy-deep hover:bg-navy-deep hover:text-bg-primary font-extrabold uppercase tracking-wider rounded-full transition-all duration-200 flex items-center gap-2"
             >
-              <Phone className="w-4 h-4 text-kis-gold" />
+              <Phone className="w-4 h-4 text-gold-accent" />
               <span>Call Admission Desk</span>
             </a>
           </div>

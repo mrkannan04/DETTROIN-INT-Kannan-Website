@@ -17,6 +17,15 @@ export default {
         'emerald-accent': 'var(--emerald-accent)',
         'text-body': 'var(--text-body)',
         'border-hairline': 'var(--border-hairline)',
+        'header-bg': 'var(--header-bg)',
+        'header-text': 'var(--header-text)',
+        'header-border': 'var(--header-border)',
+        'footer-bg': 'var(--footer-bg)',
+        'footer-text': 'var(--footer-text)',
+        'footer-heading': 'var(--footer-heading)',
+        'footer-border': 'var(--footer-border)',
+        'hero-text': 'var(--hero-text)',
+        'hero-text-muted': 'var(--hero-text-muted)',
         kis: {
           navy: {
             DEFAULT: 'var(--navy-deep)',
