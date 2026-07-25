@@ -15,14 +15,28 @@ export const AccessibilityToolbar = () => {
     toggleDyslexiaFont 
   } = useTheme();
 
+  const [isNearFooter, setIsNearFooter] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const threshold = document.documentElement.scrollHeight - 350;
+      setIsNearFooter(scrollPosition >= threshold);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      {/* Floating Left Trigger Button */}
+      {/* Floating Left Trigger Button with Footer Clearance Shift */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Accessibility Options"
         title="Accessibility Settings"
-        className="fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-navy-deep text-gold-accent hover:bg-gold-accent hover:text-navy-deep shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border border-gold-accent/40 flex items-center gap-2 group"
+        className={`fixed z-40 p-3.5 rounded-full bg-navy-deep text-gold-accent hover:bg-gold-accent hover:text-navy-deep shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border border-gold-accent/40 flex items-center gap-2 group ${
+          isNearFooter ? 'bottom-24 left-4 sm:left-6' : 'bottom-6 left-4 sm:left-6'
+        }`}
       >
         <Accessibility className="w-6 h-6 shrink-0" />
         <span className="hidden sm:inline text-xs font-black uppercase tracking-wider pr-1">
