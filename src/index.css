@@ -55,30 +55,41 @@
 
 /* Accessibility Utility Overrides */
 html.font-size-lg {
-  font-size: 18px !important;
+  font-size: 18.5px !important;
 }
 html.font-size-xl {
-  font-size: 20px !important;
+  font-size: 21px !important;
 }
-body.font-size-lg {
-  font-size: 1.125rem;
+
+html.font-size-lg [class*="text-["] {
+  font-size: 1.15em !important;
 }
-body.font-size-xl {
-  font-size: 1.25rem;
+
+html.font-size-xl [class*="text-["] {
+  font-size: 1.3em !important;
 }
-html.dyslexia-font, body.dyslexia-font, body.dyslexia-font * {
+
+html.dyslexia-font, html.dyslexia-font body, html.dyslexia-font * {
   font-family: 'Lexend', 'Inter', sans-serif !important;
   letter-spacing: 0.04em !important;
   word-spacing: 0.08em !important;
   line-height: 1.75 !important;
 }
-body.high-contrast {
+
+html.high-contrast, body.high-contrast {
   --bg-primary: #000000 !important;
-  --bg-secondary: #111111 !important;
+  --bg-secondary: #0A0A0A !important;
+  --bg-accent-section: #141414 !important;
   --text-body: #FFFFFF !important;
   --navy-deep: #FFFF00 !important;
+  --navy-muted: #E6E600 !important;
   --gold-accent: #FFD700 !important;
+  --emerald-accent: #00FF00 !important;
   --border-hairline: #FFFFFF !important;
+}
+
+html.high-contrast *, body.high-contrast * {
+  border-color: #FFFFFF !important;
 }
 
 /* Glass Card & Section Utilities */

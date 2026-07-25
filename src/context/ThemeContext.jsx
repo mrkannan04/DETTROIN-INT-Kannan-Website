@@ -47,11 +47,11 @@ export const ThemeProvider = ({ children }) => {
     if (fontSize === 'large') {
       root.classList.add('font-size-lg');
       body.classList.add('font-size-lg');
-      root.style.fontSize = '18px';
+      root.style.fontSize = '18.5px';
     } else if (fontSize === 'xlarge') {
       root.classList.add('font-size-xl');
       body.classList.add('font-size-xl');
-      root.style.fontSize = '20px';
+      root.style.fontSize = '21px';
     } else {
       root.style.fontSize = '16px';
     }
