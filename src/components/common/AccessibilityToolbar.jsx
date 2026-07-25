@@ -41,7 +41,7 @@ export const AccessibilityToolbar = ({ customPositionClass }) => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -30, scale: 0.92 }}
             transition={{ duration: 0.35, ease: EXPO_OUT_EASING }}
-            className="fixed bottom-20 left-4 sm:left-6 z-50 w-[calc(100vw-2rem)] sm:w-[340px] bg-bg-secondary rounded-3xl overflow-hidden shadow-2xl border border-border-hairline p-6 space-y-6"
+            className="fixed bottom-20 left-4 sm:left-6 z-[9999] w-[calc(100vw-2rem)] sm:w-[340px] max-h-[calc(100vh-120px)] overflow-y-auto bg-bg-secondary rounded-3xl shadow-2xl border border-border-hairline p-6 space-y-6"
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-4 border-b border-border-hairline">
@@ -62,30 +62,37 @@ export const AccessibilityToolbar = ({ customPositionClass }) => {
               </button>
             </div>
 
-            {/* Font Size Adjuster */}
-            <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-wider text-navy-deep flex items-center gap-2">
-                <Type className="w-4 h-4 text-gold-accent" />
-                <span>Text Sizing</span>
-              </label>
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { id: 'normal', label: 'Normal' },
-                  { id: 'large', label: 'Large' },
-                  { id: 'xlarge', label: 'X-Large' }
-                ].map((size) => (
-                  <button
-                    key={size.id}
-                    onClick={() => setFontSize(size.id)}
-                    className={`py-2 rounded-xl text-xs font-bold border transition-all ${
-                      fontSize === size.id
-                        ? 'bg-gold-accent text-navy-deep border-gold-accent shadow-md'
-                        : 'bg-bg-primary text-navy-muted border-border-hairline hover:border-gold-accent'
-                    }`}
-                  >
-                    {size.label}
-                  </button>
-                ))}
+            {/* Font Size Adjuster Slider */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-black uppercase tracking-wider text-navy-deep flex items-center gap-2">
+                  <Type className="w-4 h-4 text-gold-accent" />
+                  <span>Text Sizing</span>
+                </label>
+                <span className="text-[10px] font-bold text-navy-muted bg-bg-primary px-2 py-0.5 rounded border border-border-hairline">
+                  {fontSize === 'xlarge' ? 'X-Large (+30%)' : fontSize === 'large' ? 'Large (+15%)' : 'Normal'}
+                </span>
+              </div>
+              <div className="px-2">
+                <input 
+                  type="range" 
+                  min="0" 
+                  max="2" 
+                  step="1"
+                  value={fontSize === 'xlarge' ? 2 : fontSize === 'large' ? 1 : 0}
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value);
+                    if (val === 0) setFontSize('normal');
+                    else if (val === 1) setFontSize('large');
+                    else if (val === 2) setFontSize('xlarge');
+                  }}
+                  className="w-full h-2 bg-border-hairline rounded-lg appearance-none cursor-pointer accent-gold-accent outline-none"
+                />
+                <div className="flex justify-between text-[10px] text-navy-muted font-bold uppercase tracking-wider mt-2 px-1">
+                  <span>A</span>
+                  <span>A+</span>
+                  <span className="text-xs font-black">A++</span>
+                </div>
               </div>
             </div>
 
