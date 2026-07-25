@@ -21,7 +21,7 @@ export const AboutSection = () => {
             <div className="grid grid-cols-2 gap-4 relative">
               
               {/* Badge overlay */}
-              <div className="absolute -top-4 -left-4 z-20 bg-navy-deep text-white p-4 rounded-2xl shadow-xl border-2 border-gold-accent hidden sm:flex items-center gap-3 max-w-[220px]">
+              <div className="absolute -top-4 -left-4 z-20 bg-[#091724] text-white p-4 rounded-2xl shadow-xl border-2 border-gold-accent hidden sm:flex items-center gap-3 max-w-[220px]">
                 <ShieldCheck className="w-8 h-8 text-gold-accent shrink-0" />
                 <div>
                   <div className="text-[10px] font-black text-gold-accent uppercase tracking-wider">School Motto</div>
@@ -63,20 +63,20 @@ export const AboutSection = () => {
             {/* Feature Highlights Pill Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4">
               <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
-                <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
-                <span className="text-sm font-semibold text-kis-navy">5 Acres Pollution Free Campus</span>
+                <CheckCircle2 className="w-5 h-5 text-gold-accent shrink-0" />
+                <span className="text-sm font-semibold text-navy-deep">5 Acres Pollution Free Campus</span>
               </div>
               <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
-                <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
-                <span className="text-sm font-semibold text-kis-navy">Equipped Library & Science Labs</span>
+                <CheckCircle2 className="w-5 h-5 text-gold-accent shrink-0" />
+                <span className="text-sm font-semibold text-navy-deep">Equipped Library & Science Labs</span>
               </div>
               <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
-                <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
-                <span className="text-sm font-semibold text-kis-navy">Regular Student Counseling</span>
+                <CheckCircle2 className="w-5 h-5 text-gold-accent shrink-0" />
+                <span className="text-sm font-semibold text-navy-deep">Regular Student Counseling</span>
               </div>
               <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
-                <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
-                <span className="text-sm font-semibold text-kis-navy">Cultural Heritage & Pride</span>
+                <CheckCircle2 className="w-5 h-5 text-gold-accent shrink-0" />
+                <span className="text-sm font-semibold text-navy-deep">Cultural Heritage & Pride</span>
               </div>
             </div>
 

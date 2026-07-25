@@ -147,7 +147,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                        sm:bottom-20 sm:right-6 sm:w-[380px] md:w-[400px] sm:h-[480px] md:h-[500px] sm:max-h-[calc(100vh-110px)] sm:rounded-[24px]"
           >
             {/* Header */}
-            <div className="bg-navy-deep text-white px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
+            <div className="bg-[#091724] text-white px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gold-accent/20 border border-gold-accent/40 flex items-center justify-center shrink-0">
                   <img src="/school-logo.png" alt="KIS Logo" className="w-6 h-6 object-contain" />
@@ -237,7 +237,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                   className={`flex gap-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   {msg.sender === 'bot' && (
-                    <div className="w-7 h-7 rounded-full bg-gold-accent text-navy-deep flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    <div className="w-7 h-7 rounded-full bg-gold-accent text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                       <Bot className="w-4 h-4" />
                     </div>
                   )}
@@ -245,7 +245,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                   <div
                     className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl leading-relaxed shadow-sm ${
                       msg.sender === 'user'
-                        ? 'bg-gold-accent text-navy-deep font-medium rounded-br-xs'
+                        ? 'bg-gold-accent text-white font-medium rounded-br-xs'
                         : 'bg-bg-secondary text-navy-deep border border-border-hairline rounded-bl-xs'
                     }`}
                   >
@@ -253,7 +253,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                   </div>
 
                   {msg.sender === 'user' && (
-                    <div className="w-7 h-7 rounded-full bg-navy-deep text-gold-accent flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    <div className="w-7 h-7 rounded-full bg-gold-accent text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                       <User className="w-4 h-4" />
                     </div>
                   )}

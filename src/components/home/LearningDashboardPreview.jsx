@@ -139,12 +139,12 @@ export const LearningDashboardPreview = () => {
               </div>
 
               {/* Mentor Feedback Box */}
-              <div className="p-4 rounded-2xl bg-navy-deep text-white border border-gold-accent/30 shadow-md">
+              <div className="p-4 rounded-2xl bg-bg-primary border border-gold-accent/40 shadow-sm">
                 <div className="flex items-center gap-2 text-gold-accent text-xs font-bold mb-1">
                   <UserCheck className="w-4 h-4" />
                   <span>Principal Advisory Note</span>
                 </div>
-                <p className="text-xs text-gray-200 italic leading-relaxed">
+                <p className="text-xs text-text-body italic leading-relaxed">
                   "Aarav displays exemplary logical reasoning and leadership in STEM research. Recommended for CBSE National Talent Search."
                 </p>
               </div>

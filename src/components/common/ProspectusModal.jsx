@@ -40,34 +40,34 @@ export const ProspectusModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* 1-Page Prospectus Printable Content */}
-        <div className="p-8 sm:p-12 space-y-8 font-sans text-navy-deep bg-white" id="printable-prospectus">
+        <div className="p-8 sm:p-12 space-y-8 font-sans text-navy-deep bg-bg-secondary" id="printable-prospectus">
           
           {/* Header Banner */}
-          <div className="border-b-4 border-kis-navy pb-6 flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
+          <div className="border-b-4 border-gold-accent pb-6 flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
             <div>
-              <div className="inline-block px-3 py-1 bg-kis-navy text-kis-gold font-black text-[10px] uppercase tracking-widest rounded-full mb-2">
+              <div className="inline-block px-3 py-1 bg-gold-accent text-white font-black text-[10px] uppercase tracking-widest rounded-full mb-2">
                 CBSE Affiliated School • Affiliation No. 2132338
               </div>
-              <h1 className="text-3xl sm:text-4xl font-black text-kis-navy font-serif">
+              <h1 className="text-3xl sm:text-4xl font-black text-navy-deep font-serif">
                 KRISHNA INTERNATIONAL SCHOOL
               </h1>
-              <p className="text-xs sm:text-sm font-bold text-kis-gold uppercase tracking-widest mt-1">
+              <p className="text-xs sm:text-sm font-bold text-gold-accent uppercase tracking-widest mt-1">
                 Dedicated to Excellence • Delhi G.T. Road, Aligarh (U.P.)
               </p>
             </div>
-            <div className="shrink-0 bg-kis-navy p-4 rounded-2xl border-2 border-kis-gold text-white text-center">
+            <div className="shrink-0 bg-[#091724] p-4 rounded-2xl border-2 border-gold-accent text-white text-center">
               <span className="text-[10px] font-black uppercase text-gray-300 block">Session</span>
-              <span className="text-xl font-extrabold text-kis-gold font-serif">2026-27</span>
+              <span className="text-xl font-extrabold text-gold-accent font-serif">2026-27</span>
               <span className="text-[9px] text-emerald-400 font-bold block mt-0.5">Admissions Open</span>
             </div>
           </div>
 
           {/* Section 1: Overview */}
           <div className="space-y-3">
-            <h2 className="text-xl font-bold text-kis-navy font-serif border-b border-border-hairline pb-1">
+            <h2 className="text-xl font-bold text-navy-deep font-serif border-b border-border-hairline pb-1">
               1. Institutional Profile & Vision
             </h2>
-            <p className="text-xs sm:text-sm text-body leading-relaxed text-justify">
+            <p className="text-xs sm:text-sm text-text-body leading-relaxed text-justify">
               Set amidst 5 acres of eco-friendly green land away from urban noise, Krishna International School provides an optimal environment for intellectual, moral, and physical growth. Affiliated to CBSE, New Delhi, KIS integrates NEP 2020 guidelines with modern STEM education, robotics, digital classrooms, and comprehensive sports training.
             </p>
           </div>
@@ -75,59 +75,59 @@ export const ProspectusModal = ({ isOpen, onClose }) => {
           {/* Section 2: Infrastructure & Streams */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-bg-accent-section p-5 rounded-2xl border border-border-hairline space-y-2">
-              <h3 className="text-sm font-bold text-kis-navy font-serif">Academic Streams Offered (Class XI & XII)</h3>
-              <ul className="text-xs space-y-1.5 text-body font-medium">
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Science (PCM / PCB + IP / CS / PE)</span></li>
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Commerce (Accountancy, Business, Economics, Math)</span></li>
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Humanities (Pol. Science, History, Psychology, Econ)</span></li>
+              <h3 className="text-sm font-bold text-navy-deep font-serif">Academic Streams Offered (Class XI & XII)</h3>
+              <ul className="text-xs space-y-1.5 text-text-body font-medium">
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>Science (PCM / PCB + IP / CS / PE)</span></li>
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>Commerce (Accountancy, Business, Economics, Math)</span></li>
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>Humanities (Pol. Science, History, Psychology, Econ)</span></li>
               </ul>
             </div>
 
             <div className="bg-bg-accent-section p-5 rounded-2xl border border-border-hairline space-y-2">
-              <h3 className="text-sm font-bold text-kis-navy font-serif">Campus Infrastructure Highlights</h3>
-              <ul className="text-xs space-y-1.5 text-body font-medium">
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Air-Conditioned Smart Classrooms</span></li>
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Advanced Physics, Chem, Bio & AI Robotics Labs</span></li>
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>5-Acre Sports Complex (Basketball, Tennis, Football)</span></li>
-                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>GPS & Camera Equipped School Buses</span></li>
+              <h3 className="text-sm font-bold text-navy-deep font-serif">Campus Infrastructure Highlights</h3>
+              <ul className="text-xs space-y-1.5 text-text-body font-medium">
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>Air-Conditioned Smart Classrooms</span></li>
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>Advanced Physics, Chem, Bio & AI Robotics Labs</span></li>
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>5-Acre Sports Complex (Basketball, Tennis, Football)</span></li>
+                <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" /> <span>GPS & Camera Equipped School Buses</span></li>
               </ul>
             </div>
           </div>
 
           {/* Section 3: Admission & Fee Outline */}
           <div className="space-y-3">
-            <h2 className="text-xl font-bold text-kis-navy font-serif border-b border-border-hairline pb-1">
+            <h2 className="text-xl font-bold text-navy-deep font-serif border-b border-border-hairline pb-1">
               2. Admission Guidelines & Schedule
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs text-body font-medium">
-              <div className="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
-                <span className="font-bold text-kis-navy block">Step 01: Form</span>
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs text-text-body font-medium">
+              <div className="p-3 bg-bg-accent-section rounded-xl border border-border-hairline">
+                <span className="font-bold text-navy-deep block">Step 01: Form</span>
                 <span>Online / Offline Registration Form</span>
               </div>
-              <div className="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
-                <span className="font-bold text-kis-navy block">Step 02: Assessment</span>
+              <div className="p-3 bg-bg-accent-section rounded-xl border border-border-hairline">
+                <span className="font-bold text-navy-deep block">Step 02: Assessment</span>
                 <span>Interaction & Aptitude Test</span>
               </div>
-              <div className="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
-                <span className="font-bold text-kis-navy block">Step 03: Verification</span>
+              <div className="p-3 bg-bg-accent-section rounded-xl border border-border-hairline">
+                <span className="font-bold text-navy-deep block">Step 03: Verification</span>
                 <span>Birth Cert, Aadhaar & Report Card</span>
               </div>
-              <div className="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
-                <span className="font-bold text-kis-navy block">Step 04: Confirmation</span>
+              <div className="p-3 bg-bg-accent-section rounded-xl border border-border-hairline">
+                <span className="font-bold text-navy-deep block">Step 04: Confirmation</span>
                 <span>Fee Deposit & Seat Allocation</span>
               </div>
             </div>
           </div>
 
           {/* Footer Contact Info */}
-          <div className="bg-kis-navy text-white rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+          <div className="bg-[#091724] text-white rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <div className="space-y-1 text-center sm:text-left">
-              <h4 className="font-serif font-bold text-kis-gold text-sm">Admission Enquiry Desk</h4>
+              <h4 className="font-serif font-bold text-gold-accent text-sm">Admission Enquiry Desk</h4>
               <p className="text-gray-300">Delhi G.T. Road, Aligarh - 202001 (U.P.) INDIA</p>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-gray-200 font-medium">
-              <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5 text-kis-gold" /> +91 98370-50000</span>
-              <span className="flex items-center gap-1"><Mail className="w-3.5 h-3.5 text-kis-gold" /> info@kisaligarh.com</span>
+              <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5 text-gold-accent" /> +91 98370-50000</span>
+              <span className="flex items-center gap-1"><Mail className="w-3.5 h-3.5 text-gold-accent" /> info@kisaligarh.com</span>
             </div>
           </div>
 

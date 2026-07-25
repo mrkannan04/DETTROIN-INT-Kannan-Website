@@ -131,9 +131,9 @@ export const AlumniTimeline = () => {
                 </div>
 
                 {/* Testimonial Quote */}
-                <div className="relative p-6 rounded-2xl bg-navy-deep text-white border border-gold-accent/30 shadow-lg">
+                <div className="relative p-6 rounded-2xl bg-bg-primary border border-gold-accent/40 shadow-sm">
                   <Quote className="w-8 h-8 text-gold-accent/40 absolute top-4 right-4" />
-                  <p className="text-sm text-gray-200 italic font-serif leading-relaxed relative z-10">
+                  <p className="text-sm text-text-body italic font-serif leading-relaxed relative z-10">
                     "{activeAlumni.quote}"
                   </p>
                   <span className="text-xs font-bold text-gold-accent block mt-3">— {activeAlumni.name}, {activeAlumni.batch}</span>
