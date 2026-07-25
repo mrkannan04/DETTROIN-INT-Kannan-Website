@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { X } from 'lucide-react';
+import { X, Sun, Moon } from 'lucide-react';
 import { MegaMenuOverlay } from './MegaMenuOverlay';
 import { TopHeader } from './TopHeader';
 import { Logo } from '../common/Logo';
+import { useTheme } from '../../context/ThemeContext';
 
 export const Header = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   // Handle sticky header scroll effect
   useEffect(() => {
@@ -59,6 +61,21 @@ export const Header = () => {
 
               {/* Right Action Controls - Perfectly Centered Height */}
               <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                
+                {/* Sun/Moon Theme Toggle */}
+                <button
+                  onClick={toggleTheme}
+                  aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                  title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-kis-gold text-white hover:text-kis-navy border border-white/15 transition-all duration-200 flex items-center justify-center cursor-pointer group focus:outline-none"
+                >
+                  {theme === 'dark' ? (
+                    <Sun className="w-5 h-5 text-kis-gold group-hover:text-kis-navy transition-transform duration-300 rotate-0 hover:rotate-90" />
+                  ) : (
+                    <Moon className="w-5 h-5 text-white group-hover:text-kis-navy transition-transform duration-300 -rotate-12 hover:rotate-0" />
+                  )}
+                </button>
+
                 <Link
                   to="/enroll"
                   onClick={() => setIsOverlayOpen(false)}

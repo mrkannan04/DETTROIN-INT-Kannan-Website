@@ -4,49 +4,59 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
+        'bg-primary': 'var(--bg-primary)',
+        'bg-secondary': 'var(--bg-secondary)',
+        'bg-accent-section': 'var(--bg-accent-section)',
+        'navy-deep': 'var(--navy-deep)',
+        'navy-muted': 'var(--navy-muted)',
+        'gold-accent': 'var(--gold-accent)',
+        'emerald-accent': 'var(--emerald-accent)',
+        'text-body': 'var(--text-body)',
+        'border-hairline': 'var(--border-hairline)',
         kis: {
           navy: {
-            DEFAULT: '#0B2545',
-            dark: '#0B2545',
-            darker: '#071A32',
-            light: '#1B3B6F',
-            text: '#3D5170',
-            hover: '#081D37'
+            DEFAULT: 'var(--navy-deep)',
+            dark: 'var(--navy-deep)',
+            darker: '#091A27',
+            light: 'var(--navy-muted)',
+            text: 'var(--text-body)',
+            hover: 'var(--navy-deep)'
           },
           gold: {
-            DEFAULT: '#F5A623',
-            hover: '#E09214',
-            light: '#FFB800',
-            glow: '#F5A623'
+            DEFAULT: 'var(--gold-accent)',
+            hover: '#A37F3D',
+            light: '#CBB078',
+            glow: 'var(--gold-accent)'
           },
-          accent: {
-            red: '#E63946',
-            green: '#2EE6A6',
-            teal: '#2EE6A6',
-            violet: '#8B5CF6'
+          emerald: {
+            DEFAULT: 'var(--emerald-accent)',
+            hover: '#2E5546',
+            light: '#4C826C'
           },
           bg: {
-            DEFAULT: '#FFFFFF',
-            surface: '#F7F9FC',
-            light: '#F7F9FC'
+            DEFAULT: 'var(--bg-primary)',
+            surface: 'var(--bg-secondary)',
+            light: 'var(--bg-accent-section)'
           },
-          border: '#E2E8F0'
+          border: 'var(--border-hairline)'
         }
       },
       fontFamily: {
-        sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['Georgia', 'serif']
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        dyslexic: ['Lexend', 'sans-serif']
       },
       boxShadow: {
-        'card': '0 4px 20px rgba(11, 37, 69, 0.06)',
-        'card-hover': '0 12px 32px rgba(11, 37, 69, 0.12)',
-        'nav': '0 2px 15px rgba(11, 37, 69, 0.08)',
-        'gold': '0 4px 20px rgba(245, 166, 35, 0.35)',
-        'teal': '0 4px 20px rgba(46, 230, 166, 0.35)',
-        'glass': '0 8px 24px rgba(11, 37, 69, 0.08)'
+        'card': 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
+        'nav': '0 2px 15px rgba(14, 42, 63, 0.08)',
+        'gold': '0 4px 20px rgba(184, 147, 77, 0.30)',
+        'emerald': '0 4px 20px rgba(58, 107, 88, 0.30)',
+        'glass': '0 8px 24px rgba(14, 42, 63, 0.08)'
       },
       animation: {
         'float': 'float 4s ease-in-out infinite',
@@ -72,5 +82,3 @@ export default {
   },
   plugins: [],
 }
-
-
