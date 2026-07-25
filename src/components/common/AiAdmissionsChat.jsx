@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, X, Send, Sparkles, User, HelpCircle, Paperclip } from 'lucide-react';
+import { Bot, X, Send, Sparkles, User, HelpCircle, Paperclip, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
 import { EXPO_OUT_EASING } from '../../utils/premiumMotion';
 
 const FAQ_DATA = [
@@ -30,6 +30,13 @@ const FAQ_DATA = [
   }
 ];
 
+const QUICK_ACTIONS = [
+  { title: "Fee Structure PDF", query: "What is the fee structure?", icon: FileText },
+  { title: "Online Registration", query: "How do I apply for admission?", icon: CheckCircle2 },
+  { title: "CBSE Curriculum", query: "Tell me about CBSE streams and subjects", icon: Sparkles },
+  { title: "Transport Routes", query: "What bus routes are available?", icon: HelpCircle }
+];
+
 const SUGGESTED_QUESTIONS = [
   "What is the fee structure?",
   "How to apply online?",
@@ -42,20 +49,14 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [hasUnread, setHasUnread] = useState(true);
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: 'bot',
-      text: 'Hello! I am your AI Admissions Assistant. Ask me anything about admissions, fee structures, CBSE curriculum, or campus life!'
-    }
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
 
   // Auto scroll to bottom of chat
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && messages.length > 0) {
       chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, isTyping, isOpen]);
@@ -112,7 +113,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
 
   return (
     <>
-      {/* Sleek Circular Trigger Button (56px desktop / 52px tablet / 48px mobile) */}
+      {/* Compact Circular Trigger Button (56px desktop / 52px tablet / 48px mobile) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle AI Admissions Assistant"
@@ -130,22 +131,23 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
         </div>
       </button>
 
-      {/* Chat Window: Responsive Floating Window (Desktop/Tablet) or Bottom Sheet (Mobile) */}
+      {/* Chat Panel: Capped Height Window (Desktop) / Bottom Sheet (Mobile) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.92 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.85, y: 20 }}
             transition={{ duration: 0.3, ease: EXPO_OUT_EASING }}
+            style={{ transformOrigin: 'bottom right' }}
             role="dialog"
             aria-label="AI Admissions Assistant Chat"
             className="fixed z-50 flex flex-col bg-bg-secondary border border-border-hairline shadow-2xl overflow-hidden
-                       max-sm:inset-x-0 max-sm:bottom-0 max-sm:h-[85vh] max-sm:rounded-t-3xl max-sm:border-t-2 max-sm:border-gold-accent
-                       sm:bottom-24 sm:right-6 sm:w-[380px] md:w-[400px] sm:h-[600px] sm:rounded-3xl"
+                       max-sm:inset-x-0 max-sm:bottom-0 max-sm:h-[82vh] max-sm:rounded-t-[28px] max-sm:border-t-2 max-sm:border-gold-accent
+                       sm:bottom-22 sm:right-6 sm:w-[380px] md:w-[400px] sm:h-[520px] md:h-[540px] sm:rounded-[24px]"
           >
             {/* Header */}
-            <div className="bg-navy-deep text-white px-5 py-4 flex items-center justify-between border-b border-white/10 shrink-0">
+            <div className="bg-navy-deep text-white px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gold-accent/20 border border-gold-accent/40 flex items-center justify-center shrink-0">
                   <img src="/school-logo.png" alt="KIS Logo" className="w-6 h-6 object-contain" />
@@ -163,15 +165,72 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-white transition-colors cursor-pointer"
+                className="p-1.5 rounded-full hover:bg-white/10 text-gray-300 hover:text-white transition-colors cursor-pointer"
                 aria-label="Close Chat"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Messages Body */}
-            <div className="flex-grow p-4 sm:p-5 overflow-y-auto space-y-4 text-xs sm:text-sm bg-bg-primary/50">
+            {/* Conversation Area - Auto Resizing, Capped Height, Curation Card for Empty State */}
+            <div className="flex-grow p-4 overflow-y-auto space-y-4 text-xs sm:text-sm bg-bg-primary/40">
+              
+              {/* Empty / Welcome State Card (Populates initial UI with zero giant blank gaps) */}
+              {messages.length === 0 && (
+                <div className="space-y-4 animate-fadeIn">
+                  {/* Welcome Card */}
+                  <div className="bg-bg-secondary border border-border-hairline rounded-2xl p-4 shadow-sm space-y-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-full bg-gold-accent/20 text-gold-accent flex items-center justify-center shrink-0">
+                        <Sparkles className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold text-navy-deep font-serif">Welcome to KIS Admissions AI</h4>
+                        <p className="text-[11px] text-navy-muted">Instant responses for fees, CBSE streams & campus info.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Topics Action Grid */}
+                  <div>
+                    <p className="text-[10px] uppercase font-bold text-navy-muted mb-2 px-1">Quick Topics:</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {QUICK_ACTIONS.map((action, idx) => {
+                        const Icon = action.icon;
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => handleSend(action.query)}
+                            className="flex items-center gap-2 p-2.5 rounded-xl bg-bg-secondary hover:bg-gold-accent/15 border border-border-hairline hover:border-gold-accent/40 text-left transition-all group cursor-pointer"
+                          >
+                            <Icon className="w-4 h-4 text-gold-accent shrink-0 group-hover:scale-110 transition-transform" />
+                            <span className="text-[11px] font-semibold text-navy-deep leading-tight">{action.title}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Suggested Question Pills */}
+                  <div>
+                    <p className="text-[10px] uppercase font-bold text-navy-muted mb-2 px-1">Suggested Questions:</p>
+                    <div className="flex flex-col gap-1.5">
+                      {SUGGESTED_QUESTIONS.map((q, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleSend(q)}
+                          className="flex items-center justify-between p-2.5 rounded-xl bg-bg-secondary hover:bg-bg-accent-section border border-border-hairline text-left text-xs font-medium text-navy-deep transition-colors group cursor-pointer"
+                        >
+                          <span>{q}</span>
+                          <ChevronRight className="w-3.5 h-3.5 text-navy-muted group-hover:text-gold-accent transition-colors" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Message Stream */}
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -184,7 +243,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                   )}
 
                   <div
-                    className={`max-w-[80%] px-4 py-3 rounded-2xl leading-relaxed shadow-sm ${
+                    className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl leading-relaxed shadow-sm ${
                       msg.sender === 'user'
                         ? 'bg-gold-accent text-navy-deep font-medium rounded-br-xs'
                         : 'bg-bg-secondary text-navy-deep border border-border-hairline rounded-bl-xs'
@@ -201,13 +260,13 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                 </div>
               ))}
 
-              {/* Typing indicator */}
+              {/* Inline Typing Indicator strictly below latest message */}
               {isTyping && (
                 <div className="flex gap-2.5 items-center justify-start text-navy-muted">
                   <div className="w-7 h-7 rounded-full bg-gold-accent text-navy-deep flex items-center justify-center shrink-0">
                     <Bot className="w-4 h-4" />
                   </div>
-                  <div className="bg-bg-secondary border border-border-hairline px-4 py-2.5 rounded-2xl flex items-center gap-1.5 shadow-sm">
+                  <div className="bg-bg-secondary border border-border-hairline px-3.5 py-2 rounded-2xl flex items-center gap-1.5 shadow-sm">
                     <span className="w-2 h-2 bg-gold-accent rounded-full animate-bounce" />
                     <span className="w-2 h-2 bg-gold-accent rounded-full animate-bounce [animation-delay:0.2s]" />
                     <span className="w-2 h-2 bg-gold-accent rounded-full animate-bounce [animation-delay:0.4s]" />
@@ -216,24 +275,6 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
               )}
 
               <div ref={chatEndRef} />
-            </div>
-
-            {/* Quick Suggested Questions Pills */}
-            <div className="px-4 py-2 bg-bg-secondary border-t border-border-hairline shrink-0 overflow-x-auto no-scrollbar">
-              <p className="text-[10px] uppercase font-bold text-navy-muted mb-1.5 flex items-center gap-1">
-                <HelpCircle className="w-3 h-3 text-gold-accent" /> Suggested Questions:
-              </p>
-              <div className="flex gap-1.5">
-                {SUGGESTED_QUESTIONS.map((q, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleSend(q)}
-                    className="px-2.5 py-1 rounded-full bg-bg-accent-section hover:bg-gold-accent hover:text-navy-deep border border-border-hairline text-[11px] font-semibold text-navy-deep whitespace-nowrap transition-colors cursor-pointer"
-                  >
-                    {q}
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Input Bar */}
@@ -245,6 +286,14 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                 }}
                 className="flex items-center gap-2 bg-bg-primary rounded-full p-1.5 border border-border-hairline focus-within:border-gold-accent transition-colors"
               >
+                <button
+                  type="button"
+                  title="Attach file (Optional)"
+                  className="p-1.5 text-navy-muted hover:text-gold-accent transition-colors cursor-pointer shrink-0"
+                >
+                  <Paperclip className="w-4 h-4" />
+                </button>
+
                 <input
                   ref={inputRef}
                   type="text"
@@ -252,7 +301,7 @@ export const AiAdmissionsChat = ({ customPositionClass }) => {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyDown={handleKeyDownInput}
                   placeholder="Ask a question..."
-                  className="flex-grow bg-transparent px-3 py-1.5 text-xs sm:text-sm text-navy-deep focus:outline-none"
+                  className="flex-grow bg-transparent px-2 py-1 text-xs sm:text-sm text-navy-deep focus:outline-none"
                 />
                 
                 <button
