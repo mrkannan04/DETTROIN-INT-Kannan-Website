@@ -8,7 +8,7 @@ export const AboutSection = () => {
   const { sectionSubtitle, sectionTitle, motto, paragraphs, collageImages } = aboutSectionData;
 
   return (
-    <section className="py-20 bg-[#F7F9FC] relative overflow-hidden">
+    <section className="py-20 bg-bg-primary relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
@@ -21,10 +21,10 @@ export const AboutSection = () => {
             <div className="grid grid-cols-2 gap-4 relative">
               
               {/* Badge overlay */}
-              <div className="absolute -top-4 -left-4 z-20 bg-kis-navy text-white p-4 rounded-2xl shadow-xl border-2 border-kis-gold hidden sm:flex items-center gap-3 max-w-[220px]">
-                <ShieldCheck className="w-8 h-8 text-kis-gold shrink-0" />
+              <div className="absolute -top-4 -left-4 z-20 bg-navy-deep text-white p-4 rounded-2xl shadow-xl border-2 border-gold-accent hidden sm:flex items-center gap-3 max-w-[220px]">
+                <ShieldCheck className="w-8 h-8 text-gold-accent shrink-0" />
                 <div>
-                  <div className="text-[10px] font-black text-kis-gold uppercase tracking-wider">School Motto</div>
+                  <div className="text-[10px] font-black text-gold-accent uppercase tracking-wider">School Motto</div>
                   <div className="text-xs font-semibold text-gray-100">{motto}</div>
                 </div>
               </div>
@@ -32,7 +32,7 @@ export const AboutSection = () => {
               {collageImages.map((img, index) => (
                 <ImageReveal
                   key={img.id}
-                  className={`relative rounded-2xl shadow-md border-2 border-white group ${
+                  className={`relative rounded-2xl shadow-md border-2 border-border-hairline group ${
                     index % 2 === 1 ? 'mt-6 sm:mt-10' : ''
                   }`}
                 >
@@ -51,10 +51,10 @@ export const AboutSection = () => {
           </div>
 
           {/* Right Column: Copy text */}
-          <div className="lg:col-span-6 space-y-6 text-slate-700">
+          <div className="lg:col-span-6 space-y-6 text-text-body">
             <div className="space-y-4 text-base md:text-lg leading-relaxed">
               {paragraphs.map((p, idx) => (
-                <p key={idx} className="text-justify text-slate-600 font-normal">
+                <p key={idx} className="text-justify font-normal">
                   {p}
                 </p>
               ))}
