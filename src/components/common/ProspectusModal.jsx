@@ -19,31 +19,31 @@ export const ProspectusModal = ({ isOpen, onClose, autoPrint = false }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-bg-secondary rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-kis-gold relative animate-fadeIn">
+    <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
+      <div className="bg-bg-secondary rounded-3xl max-w-4xl w-full max-h-[88vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-gold-accent relative animate-fadeIn my-auto">
         
         {/* Top Control Bar (Hidden on Print) */}
-        <div className="sticky top-0 bg-kis-navy text-white px-6 py-4 flex items-center justify-between border-b border-kis-gold print:hidden z-10">
+        <div className="sticky top-0 bg-[#091724] text-white px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between border-b-2 border-gold-accent print:hidden z-20 shadow-md">
           <div className="flex items-center gap-2">
-            <Award className="w-5 h-5 text-kis-gold" />
-            <span className="font-serif font-bold text-sm sm:text-base text-kis-gold">Official School Prospectus 2026-27</span>
+            <Award className="w-5 h-5 text-gold-accent shrink-0" />
+            <span className="font-serif font-bold text-xs sm:text-base text-gold-accent truncate">Official School Prospectus 2026-27</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               onClick={handlePrint}
-              className="px-4 py-2 bg-kis-gold hover:bg-kis-gold-hover text-kis-navy font-black text-xs uppercase tracking-wider rounded-xl shadow transition-all flex items-center gap-1.5"
+              className="px-3 sm:px-4 py-2 bg-gold-accent hover:opacity-90 text-white font-extrabold text-[11px] sm:text-xs uppercase tracking-wider rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer"
             >
-              <Printer className="w-4 h-4" />
+              <Printer className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Print / Save PDF</span>
             </button>
 
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="p-1.5 sm:p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
               aria-label="Close Prospectus"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
