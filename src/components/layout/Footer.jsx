@@ -193,7 +193,7 @@ export const Footer = () => {
 
             {/* DEMO QR Code & Fictional School Code Box */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
-              <div className="w-14 h-14 bg-white rounded-lg p-1.5 shrink-0 flex items-center justify-center shadow-inner">
+              <div className="w-14 h-14 bg-bg-secondary rounded-lg p-1.5 shrink-0 flex items-center justify-center shadow-inner">
                 <svg viewBox="0 0 100 100" className="w-full h-full text-kis-navy fill-current">
                   <path d="M0 0h35v35H0zM5 5v25h25V5zm5 5h15v15H10zm55-10h35v35H65zM70 5v25h25V5zm5 5h15v15H75zM0 65h35v35H0zM5 70v25h25V70zm5 5h15v15H10zm45-10h10v10H55zm15 0h10v10H70zm15 0h10v10H85zm-30 15h10v10H55zm30 0h10v10H85zm-15 15h10v10H70z" />
                 </svg>

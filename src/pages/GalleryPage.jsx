@@ -14,16 +14,16 @@ export const GalleryPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       <PageBanner
-        title="Photo Gallery"
-        subtitle="Capturing Moments of Learning, Joy & Achievement"
+        title="Campus Life & Photo Gallery"
+        subtitle="Memories, Celebrations, Academic Labs & Athletic Triumphs at KIS"
         breadcrumb={['Home', 'Gallery']}
         bannerImage="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop"
       />
 
-      {/* Enlarged Sticky Filter Bar */}
-      <div className="sticky top-[60px] sm:top-[70px] z-30 bg-[#F7F9FC]/95 backdrop-blur-md py-4 border-b border-slate-200 shadow-sm transition-all">
+      {/* Category Filter Bar */}
+      <div className="sticky top-[60px] sm:top-[70px] z-30 bg-bg-primary/95 backdrop-blur-md py-4 border-b border-border-hairline shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 overflow-x-auto no-scrollbar justify-start sm:justify-center py-1">
             {galleryCategories.map((cat) => (
@@ -33,7 +33,7 @@ export const GalleryPage = () => {
                 className={`min-h-[44px] px-6 sm:px-8 py-2.5 rounded-full text-sm sm:text-base font-bold uppercase tracking-wider transition-all shrink-0 flex items-center justify-center ${
                   selectedCategory === cat
                     ? 'bg-kis-navy text-kis-gold shadow-md border-2 border-kis-navy'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300'
+                    : 'bg-bg-secondary text-body hover:bg-bg-accent-section border border-border-hairline'
                 }`}
               >
                 {cat}
@@ -50,7 +50,7 @@ export const GalleryPage = () => {
             <ImageReveal key={item.id}>
               <div
                 onClick={() => setLightboxImage(item)}
-                className="group relative h-64 rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover cursor-pointer border border-slate-200 bg-kis-navy transition-all duration-300 hover:-translate-y-1"
+                className="group relative h-64 rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover cursor-pointer border border-border-hairline bg-kis-navy transition-all duration-300 hover:-translate-y-1"
               >
                 <img
                   src={item.url}
@@ -83,7 +83,7 @@ export const GalleryPage = () => {
             <X className="w-6 h-6" />
           </button>
 
-          <div className="max-w-4xl w-full bg-white border-2 border-kis-gold rounded-2xl overflow-hidden shadow-2xl">
+          <div className="max-w-4xl w-full bg-bg-secondary border-2 border-kis-gold rounded-2xl overflow-hidden shadow-2xl">
             <img
               src={lightboxImage.url}
               alt={lightboxImage.title}
@@ -94,7 +94,7 @@ export const GalleryPage = () => {
                 {lightboxImage.category}
               </span>
               <h3 className="text-xl font-bold text-kis-navy font-serif">{lightboxImage.title}</h3>
-              <p className="text-sm text-slate-600 mt-1">{lightboxImage.caption}</p>
+              <p className="text-sm text-text-body mt-1">{lightboxImage.caption}</p>
             </div>
           </div>
         </div>

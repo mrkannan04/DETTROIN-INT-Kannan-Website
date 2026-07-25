@@ -45,7 +45,7 @@ export const TestimonialCarousel = () => {
   const t = testimonials[currentIndex];
 
   return (
-    <section className="py-16 bg-white border-t border-b border-slate-200">
+    <section className="py-16 bg-bg-secondary border-t border-b border-border-hairline">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-10">
@@ -58,8 +58,8 @@ export const TestimonialCarousel = () => {
         </div>
 
         <ImageReveal>
-          <div className="bg-[#F7F9FC] rounded-3xl p-8 sm:p-12 shadow-card border border-slate-200 relative overflow-hidden">
-            <Quote className="absolute top-6 left-6 w-20 h-20 text-kis-navy/5 stroke-1" />
+          <div className="glass-card bg-bg-secondary rounded-3xl p-8 sm:p-12 border border-border-hairline relative overflow-hidden transition-colors duration-300">
+            <Quote className="absolute top-6 left-6 w-20 h-20 text-navy-deep/10 stroke-1" />
 
             <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
               
@@ -84,7 +84,7 @@ export const TestimonialCarousel = () => {
                 />
                 <div className="text-left">
                   <h4 className="text-base font-bold text-kis-navy font-serif">{t.author}</h4>
-                  <p className="text-xs text-slate-500 font-semibold">{t.role}</p>
+                  <p className="text-xs text-navy-muted font-semibold">{t.role}</p>
                 </div>
               </div>
 
@@ -93,7 +93,7 @@ export const TestimonialCarousel = () => {
             {/* Slider Nav Buttons */}
             <button
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white hover:bg-kis-gold text-kis-navy shadow-md border border-slate-200 transition-all hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white hover:bg-kis-gold text-kis-navy shadow-md border border-border-hairline transition-all hover:scale-110"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -101,7 +101,7 @@ export const TestimonialCarousel = () => {
 
             <button
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white hover:bg-kis-gold text-kis-navy shadow-md border border-slate-200 transition-all hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white hover:bg-kis-gold text-kis-navy shadow-md border border-border-hairline transition-all hover:scale-110"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />

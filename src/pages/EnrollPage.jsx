@@ -39,7 +39,7 @@ export const EnrollPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       <PageBanner
         title="Online Student Admission Registration 2026-27"
         subtitle="Click to Enroll - Krishna International School, Aligarh"
@@ -54,7 +54,7 @@ export const EnrollPage = () => {
 
         {submitted && registrationSlip ? (
           <ImageReveal>
-            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-card border-2 border-kis-gold text-center space-y-6 animate-fadeIn my-6">
+            <div className="bg-bg-secondary rounded-3xl p-8 sm:p-12 shadow-card border-2 border-kis-gold text-center space-y-6 animate-fadeIn my-6">
               
               <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-12 h-12 stroke-[2.5]" />
@@ -65,46 +65,46 @@ export const EnrollPage = () => {
                   Admission Slip Generated
                 </span>
                 <h2 className="text-3xl font-extrabold text-kis-navy font-serif mt-2">Registration Successful!</h2>
-                <p className="text-slate-600 max-w-lg mx-auto text-sm leading-relaxed mt-1">
+                <p className="text-text-body max-w-lg mx-auto text-sm leading-relaxed mt-1">
                   Your child's admission application has been registered for Academic Session 2026-27.
                 </p>
               </div>
 
               {/* Registration Slip Summary Box */}
-              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-xs space-y-3 text-left max-w-xl mx-auto">
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Registration Number:</span>
+              <div className="bg-bg-accent-section rounded-2xl p-6 border border-border-hairline text-xs space-y-3 text-left max-w-xl mx-auto">
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Registration Number:</span>
                   <span className="font-mono font-black text-lg text-kis-gold">{registrationSlip.regId}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Student Name:</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Student Name:</span>
                   <span className="font-bold text-kis-navy">{registrationSlip.studentName}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Applied Grade:</span>
-                  <span className="font-bold text-slate-700">{registrationSlip.grade}</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Applied Grade:</span>
+                  <span className="font-bold text-body">{registrationSlip.grade}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Parent / Guardian:</span>
-                  <span className="font-bold text-slate-700">{registrationSlip.parentName}</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Parent / Guardian:</span>
+                  <span className="font-bold text-body">{registrationSlip.parentName}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Mobile Number:</span>
-                  <span className="font-bold text-slate-700">+91 {registrationSlip.mobile}</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Mobile Number:</span>
+                  <span className="font-bold text-body">+91 {registrationSlip.mobile}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Scheduled Entrance Assessment:</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Scheduled Entrance Assessment:</span>
                   <span className="font-bold text-emerald-600">{registrationSlip.testDate}</span>
                 </div>
 
                 <div className="flex justify-between pt-1">
-                  <span className="text-slate-500 font-semibold">Submission Date:</span>
-                  <span className="font-bold text-slate-700">{registrationSlip.submissionDate}</span>
+                  <span className="text-navy-muted font-semibold">Submission Date:</span>
+                  <span className="font-bold text-body">{registrationSlip.submissionDate}</span>
                 </div>
               </div>
 
@@ -127,7 +127,7 @@ export const EnrollPage = () => {
 
                 <button
                   onClick={() => { setSubmitted(false); reset(); setUploadedFile(null); }}
-                  className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
+                  className="px-6 py-3 bg-bg-accent-section hover:bg-slate-200 text-body font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
                 >
                   Submit Another Application
                 </button>
@@ -136,7 +136,7 @@ export const EnrollPage = () => {
             </div>
           </ImageReveal>
         ) : (
-          <div className="bg-white rounded-3xl shadow-card border border-slate-200 overflow-hidden my-6">
+          <div className="bg-bg-secondary rounded-3xl shadow-card border border-border-hairline overflow-hidden my-6">
             {/* Header */}
             <div className="bg-kis-navy p-8 text-white text-center border-b-4 border-kis-gold">
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-serif">Student Admission Application Form</h2>
@@ -148,30 +148,30 @@ export const EnrollPage = () => {
               
               {/* Section 1: Student Details */}
               <div>
-                <h3 className="text-lg font-bold text-kis-navy border-b border-slate-200 pb-2 mb-4 flex items-center gap-2 font-serif">
+                <h3 className="text-lg font-bold text-kis-navy border-b border-border-hairline pb-2 mb-4 flex items-center gap-2 font-serif">
                   <User className="w-5 h-5 text-kis-gold" />
                   <span>1. Student Information</span>
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Student Full Name *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Student Full Name *</label>
                     <input
                       type="text"
                       {...register('studentName', { required: 'Student name is required' })}
                       placeholder="Enter student's full name"
                       className={`w-full px-4 py-3 rounded-xl border text-sm focus:ring-2 focus:ring-kis-gold outline-none ${
-                        errors.studentName ? 'border-red-500' : 'border-slate-300'
+                        errors.studentName ? 'border-red-500' : 'border-border-hairline'
                       }`}
                     />
                     {errors.studentName && <span className="text-xs text-red-500 mt-1 block">{errors.studentName.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Grade Seeking Admission *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Grade Seeking Admission *</label>
                     <select
                       {...register('grade', { required: 'Please select a grade' })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-white font-medium"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-bg-secondary font-medium"
                     >
                       <option value="">Select Grade</option>
                       <option value="Nursery / LKG / UKG">Nursery / LKG / UKG</option>
@@ -186,20 +186,20 @@ export const EnrollPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Date of Birth *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Date of Birth *</label>
                     <input
                       type="date"
                       {...register('dob', { required: 'Date of birth is required' })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                     {errors.dob && <span className="text-xs text-red-500 mt-1 block">{errors.dob.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Gender *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Gender *</label>
                     <select
                       {...register('gender', { required: 'Select gender' })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-white font-medium"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-bg-secondary font-medium"
                     >
                       <option value="">Select Gender</option>
                       <option value="Male">Male</option>
@@ -209,22 +209,22 @@ export const EnrollPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Previous School Attended</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Previous School Attended</label>
                     <input
                       type="text"
                       {...register('previousSchool')}
                       placeholder="Name of previous school & board"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Student Aadhar / ID No.</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Student Aadhar / ID No.</label>
                     <input
                       type="text"
                       {...register('aadharNo')}
                       placeholder="12-digit Aadhar Number"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                   </div>
                 </div>
@@ -232,62 +232,62 @@ export const EnrollPage = () => {
 
               {/* Section 2: Parent / Guardian Details */}
               <div>
-                <h3 className="text-lg font-bold text-kis-navy border-b border-slate-200 pb-2 mb-4 flex items-center gap-2 font-serif">
+                <h3 className="text-lg font-bold text-kis-navy border-b border-border-hairline pb-2 mb-4 flex items-center gap-2 font-serif">
                   <Phone className="w-5 h-5 text-kis-gold" />
                   <span>2. Parent / Guardian Details</span>
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Father's Full Name *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Father's Full Name *</label>
                     <input
                       type="text"
                       {...register('fatherName', { required: 'Father name is required' })}
                       placeholder="Father's full name"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                     {errors.fatherName && <span className="text-xs text-red-500 mt-1 block">{errors.fatherName.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Mother's Full Name *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Mother's Full Name *</label>
                     <input
                       type="text"
                       {...register('motherName', { required: 'Mother name is required' })}
                       placeholder="Mother's full name"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                     {errors.motherName && <span className="text-xs text-red-500 mt-1 block">{errors.motherName.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Primary Mobile Number *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Primary Mobile Number *</label>
                     <input
                       type="tel"
                       {...register('mobile', { required: 'Mobile number required', pattern: { value: /^[0-9]{10}$/, message: 'Enter valid 10-digit mobile number' } })}
                       placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                     {errors.mobile && <span className="text-xs text-red-500 mt-1 block">{errors.mobile.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Email Address</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Email Address</label>
                     <input
                       type="email"
                       {...register('email')}
                       placeholder="parent.email@gmail.com"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Residential Address *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1">Residential Address *</label>
                     <input
                       type="text"
                       {...register('address', { required: 'Address is required' })}
                       placeholder="House No, Street, Colony, City, Pin Code"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none"
                     />
                     {errors.address && <span className="text-xs text-red-500 mt-1 block">{errors.address.message}</span>}
                   </div>
@@ -296,16 +296,16 @@ export const EnrollPage = () => {
 
               {/* Section 3: Document Upload (Mock) */}
               <div>
-                <h3 className="text-lg font-bold text-kis-navy border-b border-slate-200 pb-2 mb-4 flex items-center gap-2 font-serif">
+                <h3 className="text-lg font-bold text-kis-navy border-b border-border-hairline pb-2 mb-4 flex items-center gap-2 font-serif">
                   <Upload className="w-5 h-5 text-kis-gold" />
                   <span>3. Document Attachment (Optional)</span>
                 </h3>
 
-                <div className="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center hover:border-kis-gold transition-colors bg-slate-50">
+                <div className="border-2 border-dashed border-border-hairline rounded-2xl p-6 text-center hover:border-kis-gold transition-colors bg-bg-accent-section">
                   <Upload className="w-8 h-8 text-kis-gold mx-auto mb-2" />
                   <p className="text-xs font-bold text-kis-navy uppercase tracking-wider">Upload Student Passport Photo / Birth Certificate</p>
-                  <p className="text-[11px] text-slate-500 mt-0.5">JPG, PNG, or PDF up to 5MB</p>
-                  <label className="inline-block mt-3 px-4 py-2 bg-white text-slate-700 text-xs font-bold rounded-lg border border-slate-300 shadow-sm cursor-pointer hover:bg-slate-100">
+                  <p className="text-[11px] text-navy-muted mt-0.5">JPG, PNG, or PDF up to 5MB</p>
+                  <label className="inline-block mt-3 px-4 py-2 bg-bg-secondary text-body text-xs font-bold rounded-lg border border-border-hairline shadow-sm cursor-pointer hover:bg-bg-accent-section">
                     Browse File
                     <input type="file" onChange={handleFileUpload} className="hidden" />
                   </label>

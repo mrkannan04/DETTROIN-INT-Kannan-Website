@@ -39,7 +39,7 @@ export const AchievementsShowcase = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#F7F9FC]">
+    <section className="py-16 bg-bg-primary transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
@@ -59,7 +59,7 @@ export const AchievementsShowcase = () => {
             const IconComponent = item.icon;
             return (
               <ImageReveal key={item.id}>
-                <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col justify-between group">
+                <div className="bg-bg-secondary rounded-2xl p-6 border border-border-hairline shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col justify-between group">
                   <div>
                     <div className="w-12 h-12 rounded-2xl bg-kis-navy text-kis-gold flex items-center justify-center mb-4 shadow group-hover:scale-110 transition-transform">
                       <IconComponent className="w-6 h-6 stroke-[2.2]" />
@@ -73,7 +73,7 @@ export const AchievementsShowcase = () => {
                       {item.title}
                     </h3>
 
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-text-body leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

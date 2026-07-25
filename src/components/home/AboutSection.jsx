@@ -62,19 +62,19 @@ export const AboutSection = () => {
 
             {/* Feature Highlights Pill Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4">
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
                 <span className="text-sm font-semibold text-kis-navy">5 Acres Pollution Free Campus</span>
               </div>
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
                 <span className="text-sm font-semibold text-kis-navy">Equipped Library & Science Labs</span>
               </div>
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
                 <span className="text-sm font-semibold text-kis-navy">Regular Student Counseling</span>
               </div>
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-3 bg-bg-secondary p-3.5 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-all">
                 <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
                 <span className="text-sm font-semibold text-kis-navy">Cultural Heritage & Pride</span>
               </div>

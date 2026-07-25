@@ -68,7 +68,7 @@ export const GenericPage = () => {
   const pdfDoc = getPdfDoc();
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       {/* Page Banner */}
       <PageBanner
         title={page.title}
@@ -83,7 +83,7 @@ export const GenericPage = () => {
         {/* Leadership Profile Box if available */}
         {page.profile && (
           <ImageReveal>
-            <div className="mb-12 bg-white rounded-2xl p-6 sm:p-8 shadow-card border border-slate-200 flex flex-col md:flex-row items-center gap-8">
+            <div className="mb-12 bg-bg-secondary rounded-2xl p-6 sm:p-8 shadow-card border border-border-hairline flex flex-col md:flex-row items-center gap-8">
               <img
                 src={page.profile.image}
                 alt={page.profile.name}
@@ -92,7 +92,7 @@ export const GenericPage = () => {
               <div className="text-center md:text-left">
                 <h3 className="text-2xl font-bold text-kis-navy font-serif">{page.profile.name}</h3>
                 <p className="text-sm font-black text-kis-gold uppercase tracking-wider mb-2">{page.profile.role}</p>
-                <p className="text-xs text-slate-500 font-semibold">Krishna International School, Aligarh</p>
+                <p className="text-xs text-navy-muted font-semibold">Krishna International School, Aligarh</p>
               </div>
             </div>
           </ImageReveal>
@@ -113,7 +113,7 @@ export const GenericPage = () => {
 
               case 'paragraph':
                 return (
-                  <p key={idx} className="text-slate-700 text-base md:text-lg leading-relaxed text-justify">
+                  <p key={idx} className="text-body text-base md:text-lg leading-relaxed text-justify">
                     {block.text}
                   </p>
                 );
@@ -129,12 +129,12 @@ export const GenericPage = () => {
                 return (
                   <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
                     {block.items.map((item, fIdx) => (
-                      <div key={fIdx} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                      <div key={fIdx} className="bg-bg-secondary p-6 rounded-xl border border-border-hairline shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center gap-3 mb-2">
                           <CheckCircle2 className="w-5 h-5 text-kis-gold shrink-0" />
                           <h4 className="font-bold text-lg text-kis-navy font-serif">{item.title}</h4>
                         </div>
-                        <p className="text-sm text-slate-600 pl-8 leading-relaxed">{item.desc}</p>
+                        <p className="text-sm text-text-body pl-8 leading-relaxed">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -144,9 +144,9 @@ export const GenericPage = () => {
                 return (
                   <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-6">
                     {block.items.map((item, gIdx) => (
-                      <div key={gIdx} className="bg-white p-6 rounded-xl border-t-4 border-kis-gold border-x border-b border-slate-200 shadow-sm">
+                      <div key={gIdx} className="bg-bg-secondary p-6 rounded-xl border-t-4 border-kis-gold border-x border-b border-border-hairline shadow-sm">
                         <h4 className="font-bold text-lg text-kis-navy mb-2 font-serif">{item.title}</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                        <p className="text-sm text-text-body leading-relaxed">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -156,13 +156,13 @@ export const GenericPage = () => {
                 return (
                   <div key={idx} className="space-y-4 my-8">
                     {block.items.map((step, sIdx) => (
-                      <div key={sIdx} className="flex items-start gap-4 p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+                      <div key={sIdx} className="flex items-start gap-4 p-5 bg-bg-secondary rounded-xl border border-border-hairline shadow-sm">
                         <div className="w-10 h-10 rounded-full bg-kis-navy text-kis-gold font-black flex items-center justify-center text-sm shrink-0 border border-kis-gold">
                           {step.step}
                         </div>
                         <div>
                           <h4 className="font-bold text-base text-kis-navy">{step.title}</h4>
-                          <p className="text-sm text-slate-600 mt-1 leading-relaxed">{step.desc}</p>
+                          <p className="text-sm text-text-body mt-1 leading-relaxed">{step.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -171,8 +171,8 @@ export const GenericPage = () => {
 
               case 'table':
                 return (
-                  <div key={idx} className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm my-8">
-                    <table className="w-full text-left text-sm text-slate-700">
+                  <div key={idx} className="overflow-x-auto rounded-xl border border-border-hairline shadow-sm my-8">
+                    <table className="w-full text-left text-sm text-body">
                       <thead className="bg-kis-navy text-kis-gold uppercase text-xs font-black tracking-wider">
                         <tr>
                           {block.headers.map((h, hIdx) => (
@@ -180,9 +180,9 @@ export const GenericPage = () => {
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-200 bg-white font-medium">
+                      <tbody className="divide-y divide-slate-200 bg-bg-secondary font-medium">
                         {block.rows.map((row, rIdx) => (
-                          <tr key={rIdx} className="hover:bg-slate-50 transition-colors">
+                          <tr key={rIdx} className="hover:bg-bg-accent-section transition-colors">
                             {row.map((cell, cIdx) => (
                               <td key={cIdx} className="py-4 px-6">{cell}</td>
                             ))}

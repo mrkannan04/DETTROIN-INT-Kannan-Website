@@ -20,7 +20,7 @@ export const AppLoadingSplash = ({ children }) => {
           <Logo size="large" showTagline={true} />
           
           {/* Subtle Progress Bar */}
-          <div className="w-48 h-1 bg-slate-100 rounded-full overflow-hidden mt-4">
+          <div className="w-48 h-1 bg-bg-accent-section rounded-full overflow-hidden mt-4">
             <div className="w-full h-full bg-gradient-to-r from-kis-navy via-kis-gold to-kis-navy animate-gradient-shift" />
           </div>
           

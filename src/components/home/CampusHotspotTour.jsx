@@ -41,7 +41,7 @@ export const CampusHotspotTour = () => {
   const [activeSpot, setActiveSpot] = useState(hotspots[0]);
 
   return (
-    <section className="py-16 bg-white border-t border-slate-200">
+    <section className="py-16 bg-bg-secondary border-t border-border-hairline">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -51,16 +51,16 @@ export const CampusHotspotTour = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-kis-navy mt-2 font-serif">
             Interactive Campus Hotspot Tour
           </h2>
-          <p className="text-slate-600 mt-2 font-medium">
+          <p className="text-text-body mt-2 font-medium">
             Click on any hotspot pin on our 5-acre campus map to explore facilities.
           </p>
         </div>
 
         <ImageReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#F7F9FC] rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-card">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-bg-secondary rounded-3xl p-6 sm:p-8 border border-border-hairline shadow-card transition-colors duration-300">
             
             {/* Campus Map Hotspots View */}
-            <div className="lg:col-span-7 relative h-72 sm:h-96 rounded-2xl overflow-hidden shadow-inner border border-slate-300 bg-kis-navy">
+            <div className="lg:col-span-7 relative h-72 sm:h-96 rounded-2xl overflow-hidden shadow-inner border border-border-hairline bg-kis-navy">
               <img
                 src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
                 alt="Campus Map Aerial View"
@@ -97,11 +97,11 @@ export const CampusHotspotTour = () => {
             </div>
 
             {/* Hotspot Detail Card */}
-            <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div className="lg:col-span-5 bg-bg-secondary rounded-2xl p-6 border border-border-hairline shadow-sm space-y-4">
               <img
                 src={activeSpot.image}
                 alt={activeSpot.title}
-                className="w-full h-48 rounded-xl object-cover border border-slate-200 shadow-sm"
+                className="w-full h-48 rounded-xl object-cover border border-border-hairline shadow-sm"
               />
 
               <div>
@@ -111,7 +111,7 @@ export const CampusHotspotTour = () => {
                 <h3 className="text-xl font-bold text-kis-navy font-serif mt-2 mb-1">
                   {activeSpot.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-text-body leading-relaxed">
                   {activeSpot.description}
                 </p>
               </div>

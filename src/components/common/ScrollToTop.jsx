@@ -38,7 +38,7 @@ export const ScrollToTop = () => {
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-40 p-3 bg-kis-navy text-kis-gold border-2 border-kis-gold rounded-full shadow-lg hover:bg-kis-gold hover:text-kis-navy hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-kis-gold"
+          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 p-3 bg-navy-deep text-gold-accent border-2 border-gold-accent rounded-full shadow-xl hover:bg-gold-accent hover:text-navy-deep hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none"
         >
           <ArrowUp className="w-5 h-5 stroke-[2.5]" />
         </button>

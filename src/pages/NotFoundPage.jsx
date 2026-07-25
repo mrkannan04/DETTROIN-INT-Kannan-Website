@@ -6,7 +6,7 @@ import { ImageReveal } from '../components/common/ImageReveal';
 
 export const NotFoundPage = () => {
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       <PageBanner
         title="404 — Page Not Found"
         subtitle="The page you requested could not be found or has been moved."
@@ -16,7 +16,7 @@ export const NotFoundPage = () => {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <ImageReveal>
-          <div className="bg-white rounded-3xl p-10 sm:p-16 shadow-card border border-slate-200 space-y-6">
+          <div className="bg-bg-secondary rounded-3xl p-10 sm:p-16 shadow-card border border-border-hairline space-y-6">
             
             <div className="text-6xl sm:text-8xl font-black text-kis-gold font-serif tracking-tight">
               404
@@ -26,7 +26,7 @@ export const NotFoundPage = () => {
               Oops! Page Does Not Exist
             </h2>
 
-            <p className="text-slate-600 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+            <p className="text-text-body max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
               We couldn't find the page you were looking for. Please check the URL or return to our homepage.
             </p>
 

@@ -13,14 +13,14 @@ export const DocumentDownloadCard = ({
 
   return (
     <>
-      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-center justify-between gap-6 my-6">
+      <div className="bg-bg-secondary rounded-2xl p-6 border border-border-hairline shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-center justify-between gap-6 my-6">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 border border-red-100 flex items-center justify-center shrink-0 shadow-inner">
             <FileText className="w-6 h-6 stroke-[2.2]" />
           </div>
           <div>
             <h4 className="text-base font-bold text-kis-navy font-serif">{title}</h4>
-            <p className="text-xs text-slate-600 mt-0.5 font-medium">{description}</p>
+            <p className="text-xs text-text-body mt-0.5 font-medium">{description}</p>
             <span className="inline-flex items-center gap-1 text-[10px] text-slate-400 font-semibold uppercase tracking-wider mt-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-500" />
               {fileSize}

@@ -81,7 +81,7 @@ export const AiAdmissionsChat = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle AI Admissions Assistant"
-        className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center gap-2 group"
+        className="fixed bottom-6 right-4 sm:right-20 z-40 p-3.5 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center gap-2 group"
       >
         <div className="relative">
           <Bot className="w-6 h-6 text-navy-deep" />

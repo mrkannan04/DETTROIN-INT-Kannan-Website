@@ -6,7 +6,7 @@ import { Sparkles } from 'lucide-react';
 
 export const StudentShowcase = () => {
   return (
-    <section className="relative py-20 bg-[#F7F9FC] border-t border-slate-200 overflow-hidden">
+    <section className="relative py-20 bg-bg-primary border-t border-border-hairline overflow-hidden transition-colors duration-300">
       
       {/* Background Decorative Subtle Mesh */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -62,7 +62,7 @@ export const StudentShowcase = () => {
                 <h4 className="text-base font-bold text-kis-navy group-hover:text-kis-gold transition-colors">
                   {student.name}
                 </h4>
-                <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                <p className="text-xs text-navy-muted font-semibold mt-0.5">
                   {student.grade}
                 </p>
               </div>

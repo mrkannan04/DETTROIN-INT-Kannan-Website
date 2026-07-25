@@ -11,7 +11,7 @@ export const ProspectusModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-kis-gold relative animate-fadeIn">
+      <div className="bg-bg-secondary rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-kis-gold relative animate-fadeIn">
         
         {/* Top Control Bar (Hidden on Print) */}
         <div className="sticky top-0 bg-kis-navy text-white px-6 py-4 flex items-center justify-between border-b border-kis-gold print:hidden z-10">
@@ -40,7 +40,7 @@ export const ProspectusModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* 1-Page Prospectus Printable Content */}
-        <div className="p-8 sm:p-12 space-y-8 font-sans text-slate-800 bg-white" id="printable-prospectus">
+        <div className="p-8 sm:p-12 space-y-8 font-sans text-navy-deep bg-white" id="printable-prospectus">
           
           {/* Header Banner */}
           <div className="border-b-4 border-kis-navy pb-6 flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
@@ -64,28 +64,28 @@ export const ProspectusModal = ({ isOpen, onClose }) => {
 
           {/* Section 1: Overview */}
           <div className="space-y-3">
-            <h2 className="text-xl font-bold text-kis-navy font-serif border-b border-slate-200 pb-1">
+            <h2 className="text-xl font-bold text-kis-navy font-serif border-b border-border-hairline pb-1">
               1. Institutional Profile & Vision
             </h2>
-            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-justify">
+            <p className="text-xs sm:text-sm text-body leading-relaxed text-justify">
               Set amidst 5 acres of eco-friendly green land away from urban noise, Krishna International School provides an optimal environment for intellectual, moral, and physical growth. Affiliated to CBSE, New Delhi, KIS integrates NEP 2020 guidelines with modern STEM education, robotics, digital classrooms, and comprehensive sports training.
             </p>
           </div>
 
           {/* Section 2: Infrastructure & Streams */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
+            <div className="bg-bg-accent-section p-5 rounded-2xl border border-border-hairline space-y-2">
               <h3 className="text-sm font-bold text-kis-navy font-serif">Academic Streams Offered (Class XI & XII)</h3>
-              <ul className="text-xs space-y-1.5 text-slate-700 font-medium">
+              <ul className="text-xs space-y-1.5 text-body font-medium">
                 <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Science (PCM / PCB + IP / CS / PE)</span></li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Commerce (Accountancy, Business, Economics, Math)</span></li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Humanities (Pol. Science, History, Psychology, Econ)</span></li>
               </ul>
             </div>
 
-            <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
+            <div className="bg-bg-accent-section p-5 rounded-2xl border border-border-hairline space-y-2">
               <h3 className="text-sm font-bold text-kis-navy font-serif">Campus Infrastructure Highlights</h3>
-              <ul className="text-xs space-y-1.5 text-slate-700 font-medium">
+              <ul className="text-xs space-y-1.5 text-body font-medium">
                 <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Air-Conditioned Smart Classrooms</span></li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>Advanced Physics, Chem, Bio & AI Robotics Labs</span></li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-kis-gold shrink-0" /> <span>5-Acre Sports Complex (Basketball, Tennis, Football)</span></li>
@@ -96,10 +96,10 @@ export const ProspectusModal = ({ isOpen, onClose }) => {
 
           {/* Section 3: Admission & Fee Outline */}
           <div className="space-y-3">
-            <h2 className="text-xl font-bold text-kis-navy font-serif border-b border-slate-200 pb-1">
+            <h2 className="text-xl font-bold text-kis-navy font-serif border-b border-border-hairline pb-1">
               2. Admission Guidelines & Schedule
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs text-slate-700 font-medium">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs text-body font-medium">
               <div className="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
                 <span className="font-bold text-kis-navy block">Step 01: Form</span>
                 <span>Online / Offline Registration Form</span>

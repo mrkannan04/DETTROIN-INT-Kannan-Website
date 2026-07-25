@@ -20,7 +20,7 @@ export const NoticesPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       <PageBanner
         title="Official Campus Notice Board"
         subtitle="Stay Updated with Academic Announcements, Circulars & Examination Schedules"
@@ -31,7 +31,7 @@ export const NoticesPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Search & Category Filter Control Bar */}
-        <div className="bg-white rounded-3xl p-6 shadow-card border border-slate-200 mb-10 space-y-6">
+        <div className="bg-bg-secondary rounded-3xl p-6 shadow-card border border-border-hairline mb-10 space-y-6">
           
           {/* Top Search Input */}
           <div className="relative">
@@ -41,12 +41,12 @@ export const NoticesPage = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search circulars, exam dates, admission notices..."
-              className="w-full pl-12 pr-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-kis-gold text-sm outline-none font-medium text-slate-800"
+              className="w-full pl-12 pr-4 py-3.5 rounded-2xl border border-border-hairline focus:ring-2 focus:ring-kis-gold text-sm outline-none font-medium text-navy-deep"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-slate-700"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-body"
               >
                 Clear
               </button>
@@ -63,7 +63,7 @@ export const NoticesPage = () => {
                 className={`min-h-[40px] px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all shrink-0 flex items-center justify-center ${
                   selectedCategory === cat
                     ? 'bg-kis-navy text-kis-gold shadow-md border-2 border-kis-navy'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200'
+                    : 'bg-bg-accent-section text-text-body hover:bg-slate-200 border border-border-hairline'
                 }`}
               >
                 {cat}
@@ -78,8 +78,8 @@ export const NoticesPage = () => {
           <div className="space-y-6">
             {filteredNotices.map((notice) => (
               <ImageReveal key={notice.id}>
-                <div className={`bg-white rounded-3xl p-6 sm:p-8 shadow-card border transition-all duration-300 hover:-translate-y-0.5 ${
-                  notice.isPinned ? 'border-kis-gold border-2 bg-gradient-to-r from-amber-50/40 to-white' : 'border-slate-200'
+                <div className={`bg-bg-secondary rounded-3xl p-6 sm:p-8 shadow-card border transition-all duration-300 hover:-translate-y-0.5 ${
+                  notice.isPinned ? 'border-kis-gold border-2 bg-gradient-to-r from-amber-50/40 to-white' : 'border-border-hairline'
                 }`}>
                   
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -98,7 +98,7 @@ export const NoticesPage = () => {
                           {notice.category}
                         </span>
 
-                        <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
+                        <div className="flex items-center gap-1.5 text-xs text-navy-muted font-semibold">
                           <Calendar className="w-3.5 h-3.5 text-kis-gold" />
                           <span>{notice.date}</span>
                         </div>
@@ -112,7 +112,7 @@ export const NoticesPage = () => {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm text-slate-600 leading-relaxed">
+                      <p className="text-sm text-text-body leading-relaxed">
                         {notice.description}
                       </p>
                     </div>
@@ -123,7 +123,7 @@ export const NoticesPage = () => {
                         <a
                           href={notice.pdfUrl}
                           download={notice.fileName}
-                          className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 border border-slate-200"
+                          className="px-5 py-3 bg-bg-accent-section hover:bg-slate-200 text-body text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 border border-border-hairline"
                         >
                           <Download className="w-4 h-4 text-kis-gold" />
                           <span>PDF Circular</span>
@@ -146,10 +146,10 @@ export const NoticesPage = () => {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-sm space-y-4">
+          <div className="bg-bg-secondary rounded-3xl p-12 text-center border border-border-hairline shadow-sm space-y-4">
             <FileText className="w-12 h-12 text-slate-300 mx-auto" />
             <h3 className="text-xl font-bold text-kis-navy font-serif">No Notices Found</h3>
-            <p className="text-sm text-slate-500">No circulars match your search filter "{searchQuery}". Try selecting a different category.</p>
+            <p className="text-sm text-navy-muted">No circulars match your search filter "{searchQuery}". Try selecting a different category.</p>
             <button
               onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
               className="px-6 py-2.5 bg-kis-navy text-kis-gold font-bold text-xs uppercase rounded-full shadow"

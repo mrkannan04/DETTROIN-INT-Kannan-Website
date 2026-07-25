@@ -45,7 +45,7 @@ export const SchoolDashboardWidget = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#F7F9FC]">
+    <section className="py-16 bg-bg-accent-section transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -57,7 +57,7 @@ export const SchoolDashboardWidget = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-kis-navy font-serif">
             Faculty Spotlight & Live School Updates
           </h2>
-          <p className="text-slate-600 mt-2 font-medium">
+          <p className="text-text-body mt-2 font-medium">
             Explore our experienced educators and upcoming campus events at Krishna International School.
           </p>
         </div>
@@ -67,7 +67,7 @@ export const SchoolDashboardWidget = () => {
           {/* Left Column: Principal Spotlight Card */}
           <div className="lg:col-span-5">
             <ImageReveal>
-              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-card border border-slate-200 relative overflow-hidden">
+              <div className="bg-bg-secondary rounded-3xl p-6 sm:p-8 shadow-card border border-border-hairline relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-kis-gold/10 rounded-full blur-2xl -mr-10 -mt-10" />
 
                 <div className="flex flex-col items-center text-center">
@@ -88,7 +88,7 @@ export const SchoolDashboardWidget = () => {
                   <h3 className="text-2xl font-bold text-kis-navy font-serif">Dr. R. K. Sharma</h3>
                   <p className="text-xs text-kis-gold font-black uppercase tracking-wider mb-4">M.Sc., Ph.D., B.Ed. • Principal</p>
 
-                  <blockquote className="text-sm text-slate-600 italic leading-relaxed bg-slate-50 p-4 rounded-2xl border-l-4 border-kis-gold mb-6 text-justify">
+                  <blockquote className="text-sm text-text-body italic leading-relaxed bg-bg-accent-section p-4 rounded-2xl border-l-4 border-kis-gold mb-6 text-justify">
                     "Education is not merely the accumulation of facts, but the training of the mind to think independently and lead with integrity."
                   </blockquote>
 
@@ -108,13 +108,13 @@ export const SchoolDashboardWidget = () => {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Tab Controls */}
-            <div className="flex items-center gap-3 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="flex items-center gap-3 bg-bg-secondary p-2 rounded-2xl border border-border-hairline shadow-sm">
               <button
                 onClick={() => setActiveTab('teachers')}
                 className={`flex-1 py-3 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
                   activeTab === 'teachers'
                     ? 'bg-kis-navy text-kis-gold shadow-md'
-                    : 'text-slate-600 hover:bg-slate-100'
+                    : 'text-text-body hover:bg-bg-accent-section'
                 }`}
               >
                 <BookOpen className="w-4 h-4" />
@@ -126,7 +126,7 @@ export const SchoolDashboardWidget = () => {
                 className={`flex-1 py-3 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
                   activeTab === 'notices'
                     ? 'bg-kis-navy text-kis-gold shadow-md'
-                    : 'text-slate-600 hover:bg-slate-100'
+                    : 'text-text-body hover:bg-bg-accent-section'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -139,7 +139,7 @@ export const SchoolDashboardWidget = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {teachers.map((t, idx) => (
                   <ImageReveal key={idx}>
-                    <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-card-hover transition-all flex items-center gap-4 group">
+                    <div className="bg-bg-secondary rounded-2xl p-5 border border-border-hairline shadow-sm hover:shadow-card-hover transition-all flex items-center gap-4 group">
                       <img
                         src={t.image}
                         alt={t.name}
@@ -152,8 +152,8 @@ export const SchoolDashboardWidget = () => {
                       <div>
                         <h4 className="text-base font-bold text-kis-navy font-serif">{t.name}</h4>
                         <p className="text-xs text-kis-gold font-extrabold">{t.role}</p>
-                        <p className="text-xs text-slate-500 mt-1">{t.subject}</p>
-                        <span className="inline-block px-2 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold rounded mt-1">
+                        <p className="text-xs text-navy-muted mt-1">{t.subject}</p>
+                        <span className="inline-block px-2 py-0.5 bg-bg-accent-section text-text-body text-[10px] font-bold rounded mt-1">
                           {t.experience}
                         </span>
                       </div>
@@ -162,7 +162,7 @@ export const SchoolDashboardWidget = () => {
                 ))}
               </div>
             ) : (
-              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <div className="bg-bg-secondary rounded-2xl p-6 border border-border-hairline shadow-sm space-y-4">
                 {notices.map((n, idx) => (
                   <div key={idx} className="flex items-start justify-between gap-4 border-b border-slate-100 pb-4 last:border-0 last:pb-0">
                     <div className="space-y-1">
@@ -171,7 +171,7 @@ export const SchoolDashboardWidget = () => {
                       </span>
                       <h4 className="text-sm font-bold text-kis-navy leading-snug">{n.title}</h4>
                     </div>
-                    <span className="text-xs font-bold text-slate-500 whitespace-nowrap shrink-0">{n.date}</span>
+                    <span className="text-xs font-bold text-navy-muted whitespace-nowrap shrink-0">{n.date}</span>
                   </div>
                 ))}
               </div>

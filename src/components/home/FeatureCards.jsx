@@ -8,7 +8,7 @@ export const FeatureCards = () => {
   const { sectionTitle, cards } = featureCardsData;
 
   return (
-    <section className="py-20 bg-[#F7F9FC] relative">
+    <section className="py-20 bg-bg-primary relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -23,7 +23,7 @@ export const FeatureCards = () => {
           {cards.map((card) => (
             <div
               key={card.id}
-              className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover bg-kis-navy border border-slate-200 transition-all duration-300 flex flex-col h-[380px] sm:h-[400px] hover:-translate-y-1"
+              className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover bg-kis-navy border border-border-hairline transition-all duration-300 flex flex-col h-[380px] sm:h-[400px] hover:-translate-y-1"
             >
               {/* Card Image with Fallback and Balanced Overlay */}
               <div className="absolute inset-0 z-0 overflow-hidden bg-kis-navy">

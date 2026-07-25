@@ -24,11 +24,11 @@ export const Logo = ({ variant = 'default', size = 'normal', showTagline = true 
 
       {/* Wordmark Typography with Responsive Scaling */}
       <div className="flex flex-col justify-center min-w-0">
-        <h1 className={`text-[11px] min-[360px]:text-xs min-[390px]:text-sm sm:text-base md:text-xl font-black tracking-tight uppercase font-serif leading-tight truncate ${isLight ? 'text-white' : 'text-kis-navy'} group-hover:text-kis-gold transition-colors`}>
-          KRISHNA <span className="text-kis-gold">INT.</span> <span className="hidden min-[360px]:inline">SCHOOL</span>
+        <h1 className={`text-[11px] min-[360px]:text-xs min-[390px]:text-sm sm:text-base md:text-xl font-black tracking-tight uppercase font-serif leading-tight truncate ${isLight ? 'text-white' : 'text-navy-deep'} group-hover:text-gold-accent transition-colors`}>
+          KRISHNA <span className="text-gold-accent">INT.</span> <span className="hidden min-[360px]:inline">SCHOOL</span>
         </h1>
         {showTagline && (
-          <span className={`text-[8px] min-[375px]:text-[9px] sm:text-[10px] tracking-wider font-semibold uppercase truncate ${isLight ? 'text-gray-300' : 'text-kis-navy-text'}`}>
+          <span className={`text-[8px] min-[375px]:text-[9px] sm:text-[10px] tracking-wider font-semibold uppercase truncate ${isLight ? 'text-gray-300' : 'text-navy-muted'}`}>
             Aligarh • Dedicated to Excellence
           </span>
         )}

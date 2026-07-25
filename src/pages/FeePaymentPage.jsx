@@ -113,7 +113,7 @@ export const FeePaymentPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       <PageBanner
         title="Online School Fee Payment Portal"
         subtitle="Krishna International School, Aligarh • Secure Payment Gateway"
@@ -124,17 +124,17 @@ export const FeePaymentPage = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Step Indicator Wizard Bar */}
-        <div className="mb-10 bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 shadow-card">
+        <div className="mb-10 bg-bg-secondary p-4 sm:p-6 rounded-3xl border border-border-hairline shadow-card">
           <div className="flex items-center justify-between relative max-w-3xl mx-auto">
             
             {/* Step 1 */}
             <div className="flex flex-col items-center relative z-10">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm transition-all ${
-                step >= 1 ? 'bg-kis-navy text-kis-gold border-2 border-kis-gold shadow' : 'bg-slate-100 text-slate-400'
+                step >= 1 ? 'bg-kis-navy text-kis-gold border-2 border-kis-gold shadow' : 'bg-bg-accent-section text-slate-400'
               }`}>
                 1
               </div>
-              <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mt-2 hidden sm:block">Search Class</span>
+              <span className="text-[11px] font-bold text-body uppercase tracking-wider mt-2 hidden sm:block">Search Class</span>
             </div>
 
             {/* Line 1-2 */}
@@ -143,11 +143,11 @@ export const FeePaymentPage = () => {
             {/* Step 2 */}
             <div className="flex flex-col items-center relative z-10">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm transition-all ${
-                step >= 2 ? 'bg-kis-navy text-kis-gold border-2 border-kis-gold shadow' : 'bg-slate-100 text-slate-400'
+                step >= 2 ? 'bg-kis-navy text-kis-gold border-2 border-kis-gold shadow' : 'bg-bg-accent-section text-slate-400'
               }`}>
                 2
               </div>
-              <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mt-2 hidden sm:block">Select Student</span>
+              <span className="text-[11px] font-bold text-body uppercase tracking-wider mt-2 hidden sm:block">Select Student</span>
             </div>
 
             {/* Line 2-3 */}
@@ -156,11 +156,11 @@ export const FeePaymentPage = () => {
             {/* Step 3 */}
             <div className="flex flex-col items-center relative z-10">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm transition-all ${
-                step >= 3 ? 'bg-kis-navy text-kis-gold border-2 border-kis-gold shadow' : 'bg-slate-100 text-slate-400'
+                step >= 3 ? 'bg-kis-navy text-kis-gold border-2 border-kis-gold shadow' : 'bg-bg-accent-section text-slate-400'
               }`}>
                 3
               </div>
-              <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mt-2 hidden sm:block">Fee Payment</span>
+              <span className="text-[11px] font-bold text-body uppercase tracking-wider mt-2 hidden sm:block">Fee Payment</span>
             </div>
 
             {/* Line 3-4 */}
@@ -169,11 +169,11 @@ export const FeePaymentPage = () => {
             {/* Step 4 */}
             <div className="flex flex-col items-center relative z-10">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm transition-all ${
-                step >= 4 ? 'bg-emerald-600 text-white border-2 border-emerald-400 shadow' : 'bg-slate-100 text-slate-400'
+                step >= 4 ? 'bg-emerald-600 text-white border-2 border-emerald-400 shadow' : 'bg-bg-accent-section text-slate-400'
               }`}>
                 4
               </div>
-              <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mt-2 hidden sm:block">Receipt</span>
+              <span className="text-[11px] font-bold text-body uppercase tracking-wider mt-2 hidden sm:block">Receipt</span>
             </div>
 
           </div>
@@ -182,10 +182,10 @@ export const FeePaymentPage = () => {
         {/* STEP 1: Class & Section Search Form */}
         {step === 1 && (
           <ImageReveal>
-            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-card border border-slate-200">
-              <div className="border-b border-slate-200 pb-4 mb-8 text-center sm:text-left">
+            <div className="bg-bg-secondary rounded-3xl p-8 sm:p-12 shadow-card border border-border-hairline">
+              <div className="border-b border-border-hairline pb-4 mb-8 text-center sm:text-left">
                 <h3 className="text-2xl font-bold text-kis-navy font-serif">Search Student Record</h3>
-                <p className="text-sm text-slate-600 mt-1">Enter academic session, class, section, and optional roll number to fetch fee details.</p>
+                <p className="text-sm text-text-body mt-1">Enter academic session, class, section, and optional roll number to fetch fee details.</p>
               </div>
 
               <form onSubmit={handleSearch} className="space-y-6">
@@ -193,11 +193,11 @@ export const FeePaymentPage = () => {
                   
                   {/* Academic Year */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1.5">Academic Session *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1.5">Academic Session *</label>
                     <select
                       value={searchParams.academicYear}
                       onChange={(e) => setSearchParams({ ...searchParams, academicYear: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-white font-medium"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-bg-secondary font-medium"
                     >
                       <option value="2026-27">Session 2026-27</option>
                       <option value="2025-26">Session 2025-26</option>
@@ -206,11 +206,11 @@ export const FeePaymentPage = () => {
 
                   {/* Grade / Class */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1.5">Select Class *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1.5">Select Class *</label>
                     <select
                       value={searchParams.grade}
                       onChange={(e) => setSearchParams({ ...searchParams, grade: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-white font-medium"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-bg-secondary font-medium"
                     >
                       <option value="Nursery">Nursery / LKG / UKG</option>
                       <option value="Class V">Class V (Primary)</option>
@@ -223,11 +223,11 @@ export const FeePaymentPage = () => {
 
                   {/* Section */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1.5">Select Section *</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1.5">Select Section *</label>
                     <select
                       value={searchParams.section}
                       onChange={(e) => setSearchParams({ ...searchParams, section: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-white font-medium"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none bg-bg-secondary font-medium"
                     >
                       <option value="Section A">Section A</option>
                       <option value="Section B">Section B</option>
@@ -237,13 +237,13 @@ export const FeePaymentPage = () => {
 
                   {/* Student Roll No or Name */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1.5">Roll No / Student Name</label>
+                    <label className="block text-xs font-bold uppercase text-body mb-1.5">Roll No / Student Name</label>
                     <input
                       type="text"
                       value={searchParams.rollNo}
                       onChange={(e) => setSearchParams({ ...searchParams, rollNo: e.target.value })}
                       placeholder="e.g. 104 or Aarav"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-kis-gold outline-none font-medium"
+                      className="w-full px-4 py-3 rounded-xl border border-border-hairline text-sm focus:ring-2 focus:ring-kis-gold outline-none font-medium"
                     />
                   </div>
 
@@ -264,7 +264,7 @@ export const FeePaymentPage = () => {
         {/* STEP 2: Select Student List View */}
         {step === 2 && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="flex items-center justify-between bg-bg-secondary p-6 rounded-2xl border border-border-hairline shadow-sm">
               <div>
                 <span className="text-xs text-kis-gold font-black uppercase tracking-wider">Search Results</span>
                 <h3 className="text-xl font-bold text-kis-navy font-serif">
@@ -274,7 +274,7 @@ export const FeePaymentPage = () => {
 
               <button
                 onClick={() => setStep(1)}
-                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 bg-bg-accent-section hover:bg-slate-200 text-body text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Modify Search</span>
@@ -284,7 +284,7 @@ export const FeePaymentPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {searchResults.map((student) => (
                 <ImageReveal key={student.id}>
-                  <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-card hover:border-kis-gold transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between h-full">
+                  <div className="bg-bg-secondary rounded-2xl p-6 border border-border-hairline shadow-card hover:border-kis-gold transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between h-full">
                     <div>
                       <div className="flex items-center gap-4 mb-4">
                         <img
@@ -297,21 +297,21 @@ export const FeePaymentPage = () => {
                             Roll No: {student.rollNo}
                           </span>
                           <h4 className="text-lg font-bold text-kis-navy font-serif">{student.name}</h4>
-                          <p className="text-xs text-slate-500 font-medium">{student.fatherName}</p>
+                          <p className="text-xs text-navy-muted font-medium">{student.fatherName}</p>
                         </div>
                       </div>
 
-                      <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs mb-6">
+                      <div className="bg-bg-accent-section p-4 rounded-xl border border-border-hairline space-y-2 text-xs mb-6">
                         <div className="flex justify-between">
-                          <span className="text-slate-500 font-semibold">Class / Sec:</span>
+                          <span className="text-navy-muted font-semibold">Class / Sec:</span>
                           <span className="font-bold text-kis-navy">{student.grade} ({student.section})</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-500 font-semibold">Adm ID:</span>
-                          <span className="font-mono font-bold text-slate-700">{student.id}</span>
+                          <span className="text-navy-muted font-semibold">Adm ID:</span>
+                          <span className="font-mono font-bold text-body">{student.id}</span>
                         </div>
-                        <div className="flex justify-between border-t border-slate-200 pt-2">
-                          <span className="text-slate-500 font-semibold">Pending Due:</span>
+                        <div className="flex justify-between border-t border-border-hairline pt-2">
+                          <span className="text-navy-muted font-semibold">Pending Due:</span>
                           <span className="font-black text-red-600">₹{student.totalFee.toLocaleString('en-IN')}</span>
                         </div>
                       </div>
@@ -337,53 +337,53 @@ export const FeePaymentPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               {/* Fee Details Breakdown (Left 7 cols) */}
-              <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-card space-y-6">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+              <div className="lg:col-span-7 bg-bg-secondary rounded-3xl p-6 sm:p-8 border border-border-hairline shadow-card space-y-6">
+                <div className="flex items-center justify-between border-b border-border-hairline pb-4">
                   <div>
                     <span className="text-xs text-kis-gold font-black uppercase tracking-wider">Fee Statement</span>
                     <h3 className="text-2xl font-bold text-kis-navy font-serif">{selectedStudent.name}</h3>
-                    <p className="text-xs text-slate-500">Roll No. {selectedStudent.rollNo} • {selectedStudent.grade} ({selectedStudent.section})</p>
+                    <p className="text-xs text-navy-muted">Roll No. {selectedStudent.rollNo} • {selectedStudent.grade} ({selectedStudent.section})</p>
                   </div>
                   <button
                     onClick={() => setStep(2)}
-                    className="text-xs font-bold text-slate-500 hover:text-kis-navy"
+                    className="text-xs font-bold text-navy-muted hover:text-kis-navy"
                   >
                     Change Student
                   </button>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="text-xs font-black uppercase text-slate-700 tracking-wider">Itemized Quarterly Breakdown</h4>
+                  <h4 className="text-xs font-black uppercase text-body tracking-wider">Itemized Quarterly Breakdown</h4>
                   
-                  <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-3 text-sm">
-                    <div className="flex justify-between text-slate-700">
+                  <div className="bg-bg-accent-section rounded-2xl p-5 border border-border-hairline space-y-3 text-sm">
+                    <div className="flex justify-between text-body">
                       <span>Quarterly Tuition Fee</span>
                       <span className="font-bold">₹{selectedStudent.tuitionFee.toLocaleString('en-IN')}</span>
                     </div>
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-body">
                       <span>Computer & Science Lab Charge</span>
                       <span className="font-bold">₹{selectedStudent.labFee.toLocaleString('en-IN')}</span>
                     </div>
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-body">
                       <span>AC Bus Transport Facility</span>
                       <span className="font-bold">₹{selectedStudent.transportFee.toLocaleString('en-IN')}</span>
                     </div>
-                    <div className="border-t border-slate-200 pt-3 flex justify-between text-lg font-black text-kis-navy">
+                    <div className="border-t border-border-hairline pt-3 flex justify-between text-lg font-black text-kis-navy">
                       <span>Total Amount Due</span>
                       <span className="text-kis-gold font-serif">₹{selectedStudent.totalFee.toLocaleString('en-IN')}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-slate-500 bg-emerald-50 p-3.5 rounded-xl border border-emerald-200">
+                <div className="flex items-center gap-2 text-xs text-navy-muted bg-emerald-50 p-3.5 rounded-xl border border-emerald-200">
                   <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
                   <span>256-Bit SSL Encrypted Official Payment Portal for Krishna International School</span>
                 </div>
               </div>
 
               {/* Payment Gateway Options (Right 5 cols) */}
-              <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-card space-y-6">
-                <h3 className="text-lg font-bold text-kis-navy font-serif border-b border-slate-200 pb-3">
+              <div className="lg:col-span-5 bg-bg-secondary rounded-3xl p-6 sm:p-8 border border-border-hairline shadow-card space-y-6">
+                <h3 className="text-lg font-bold text-kis-navy font-serif border-b border-border-hairline pb-3">
                   Select Payment Method
                 </h3>
 
@@ -392,7 +392,7 @@ export const FeePaymentPage = () => {
                   
                   {/* UPI */}
                   <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                    paymentMethod === 'upi' ? 'border-kis-gold bg-kis-gold/10' : 'border-slate-200 hover:border-slate-300'
+                    paymentMethod === 'upi' ? 'border-kis-gold bg-kis-gold/10' : 'border-border-hairline hover:border-border-hairline'
                   }`}>
                     <input
                       type="radio"
@@ -404,13 +404,13 @@ export const FeePaymentPage = () => {
                     <QrCode className="w-5 h-5 text-kis-navy" />
                     <div>
                       <span className="text-sm font-bold text-kis-navy block">UPI / QR Code</span>
-                      <span className="text-[10px] text-slate-500">Google Pay, PhonePe, Paytm, BHIM</span>
+                      <span className="text-[10px] text-navy-muted">Google Pay, PhonePe, Paytm, BHIM</span>
                     </div>
                   </label>
 
                   {/* Credit / Debit Card */}
                   <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                    paymentMethod === 'card' ? 'border-kis-gold bg-kis-gold/10' : 'border-slate-200 hover:border-slate-300'
+                    paymentMethod === 'card' ? 'border-kis-gold bg-kis-gold/10' : 'border-border-hairline hover:border-border-hairline'
                   }`}>
                     <input
                       type="radio"
@@ -422,7 +422,7 @@ export const FeePaymentPage = () => {
                     <CreditCard className="w-5 h-5 text-kis-navy" />
                     <div>
                       <span className="text-sm font-bold text-kis-navy block">Credit / Debit Card</span>
-                      <span className="text-[10px] text-slate-500">Visa, Mastercard, RuPay</span>
+                      <span className="text-[10px] text-navy-muted">Visa, Mastercard, RuPay</span>
                     </div>
                   </label>
 
@@ -430,7 +430,7 @@ export const FeePaymentPage = () => {
 
                 {/* Simulated Payment Form Details */}
                 {paymentMethod === 'upi' ? (
-                  <div className="bg-slate-50 p-4 rounded-xl text-center space-y-2 border border-slate-200">
+                  <div className="bg-bg-accent-section p-4 rounded-xl text-center space-y-2 border border-border-hairline">
                     <div className="w-32 h-32 bg-white mx-auto border-2 border-kis-navy rounded-lg p-2 flex items-center justify-center shadow-inner">
                       {/* Demo QR Code Graphic */}
                       <svg viewBox="0 0 100 100" className="w-full h-full text-kis-navy fill-current">
@@ -446,33 +446,33 @@ export const FeePaymentPage = () => {
                         <rect x="40" y="40" width="20" height="20" />
                       </svg>
                     </div>
-                    <p className="text-xs text-slate-600 font-medium">Scan QR code using any UPI App</p>
+                    <p className="text-xs text-text-body font-medium">Scan QR code using any UPI App</p>
                   </div>
                 ) : (
                   <div className="space-y-3 text-xs">
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-700 uppercase mb-1">Card Number</label>
+                      <label className="block text-[10px] font-bold text-body uppercase mb-1">Card Number</label>
                       <input
                         type="text"
                         placeholder="4532 •••• •••• 8912"
-                        className="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none"
+                        className="w-full px-3 py-2 rounded-lg border border-border-hairline text-xs outline-none"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[10px] font-bold text-slate-700 uppercase mb-1">Expiry (MM/YY)</label>
+                        <label className="block text-[10px] font-bold text-body uppercase mb-1">Expiry (MM/YY)</label>
                         <input
                           type="text"
                           placeholder="08/28"
-                          className="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none"
+                          className="w-full px-3 py-2 rounded-lg border border-border-hairline text-xs outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] font-bold text-slate-700 uppercase mb-1">CVV</label>
+                        <label className="block text-[10px] font-bold text-body uppercase mb-1">CVV</label>
                         <input
                           type="password"
                           placeholder="•••"
-                          className="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none"
+                          className="w-full px-3 py-2 rounded-lg border border-border-hairline text-xs outline-none"
                         />
                       </div>
                     </div>
@@ -501,7 +501,7 @@ export const FeePaymentPage = () => {
         {/* STEP 4: Payment Receipt View */}
         {step === 4 && paymentReceipt && (
           <ImageReveal>
-            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-card border-2 border-emerald-500 text-center max-w-2xl mx-auto space-y-6">
+            <div className="bg-bg-secondary rounded-3xl p-8 sm:p-12 shadow-card border-2 border-emerald-500 text-center max-w-2xl mx-auto space-y-6">
               
               <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-12 h-12 stroke-[2.5]" />
@@ -512,38 +512,38 @@ export const FeePaymentPage = () => {
                   Payment Successful
                 </span>
                 <h3 className="text-3xl font-extrabold text-kis-navy font-serif mt-2">School Fee Receipt</h3>
-                <p className="text-xs text-slate-500">Official Payment Acknowledgement Slip</p>
+                <p className="text-xs text-navy-muted">Official Payment Acknowledgement Slip</p>
               </div>
 
               {/* Receipt Details Table */}
-              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-xs space-y-3 text-left">
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Receipt Number:</span>
+              <div className="bg-bg-accent-section rounded-2xl p-6 border border-border-hairline text-xs space-y-3 text-left">
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Receipt Number:</span>
                   <span className="font-mono font-bold text-kis-navy">{paymentReceipt.receiptNo}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Transaction Ref ID:</span>
-                  <span className="font-mono font-bold text-slate-700">{paymentReceipt.txnId}</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Transaction Ref ID:</span>
+                  <span className="font-mono font-bold text-body">{paymentReceipt.txnId}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Student Name:</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Student Name:</span>
                   <span className="font-bold text-kis-navy">{paymentReceipt.student.name}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Class / Roll No:</span>
-                  <span className="font-bold text-slate-700">{paymentReceipt.student.grade} ({paymentReceipt.student.section}) • Roll {paymentReceipt.student.rollNo}</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Class / Roll No:</span>
+                  <span className="font-bold text-body">{paymentReceipt.student.grade} ({paymentReceipt.student.section}) • Roll {paymentReceipt.student.rollNo}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-slate-200 pb-2">
-                  <span className="text-slate-500 font-semibold">Date & Time:</span>
-                  <span className="font-bold text-slate-700">{paymentReceipt.date} at {paymentReceipt.time}</span>
+                <div className="flex justify-between border-b border-border-hairline pb-2">
+                  <span className="text-navy-muted font-semibold">Date & Time:</span>
+                  <span className="font-bold text-body">{paymentReceipt.date} at {paymentReceipt.time}</span>
                 </div>
 
                 <div className="flex justify-between pt-2 text-sm font-black">
-                  <span className="text-slate-700">Total Amount Paid:</span>
+                  <span className="text-body">Total Amount Paid:</span>
                   <span className="text-emerald-600 font-serif text-lg">₹{paymentReceipt.amountPaid.toLocaleString('en-IN')}</span>
                 </div>
               </div>
@@ -560,14 +560,14 @@ export const FeePaymentPage = () => {
 
                 <button
                   onClick={() => { setStep(1); setSelectedStudent(null); setPaymentReceipt(null); }}
-                  className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
+                  className="px-6 py-3 bg-bg-accent-section hover:bg-slate-200 text-body font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
                 >
                   Make Another Payment
                 </button>
               </div>
 
               {/* Go Back to Home Page Button */}
-              <div className="pt-6 border-t border-slate-200 mt-4">
+              <div className="pt-6 border-t border-border-hairline mt-4">
                 <Link
                   to="/"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-kis-gold hover:bg-kis-gold-hover text-kis-navy font-black text-xs uppercase tracking-wider rounded-full shadow hover:scale-105 transition-all"

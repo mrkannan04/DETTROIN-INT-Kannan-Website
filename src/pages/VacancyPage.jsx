@@ -23,7 +23,7 @@ export const VacancyPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="min-h-screen bg-primary transition-colors duration-300">
       <PageBanner
         title="Join Our Faculty & Staff"
         subtitle="Shape the Minds of Tomorrow at Krishna International School"
@@ -34,7 +34,7 @@ export const VacancyPage = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-extrabold text-kis-navy font-serif">Current Career Opportunities</h2>
-          <p className="text-slate-600 mt-2 font-medium">We are seeking passionate, qualified educators committed to educational excellence.</p>
+          <p className="text-text-body mt-2 font-medium">We are seeking passionate, qualified educators committed to educational excellence.</p>
         </div>
 
         {/* Vacancies List */}
@@ -42,7 +42,7 @@ export const VacancyPage = () => {
           {vacanciesData.map((job) => (
             <ImageReveal key={job.id}>
               <div
-                className="bg-white rounded-2xl p-6 sm:p-8 shadow-card border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:border-kis-gold transition-all duration-300 hover:-translate-y-0.5"
+                className="bg-bg-secondary rounded-2xl p-6 sm:p-8 shadow-card border border-border-hairline flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:border-kis-gold transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -52,9 +52,9 @@ export const VacancyPage = () => {
                     </span>
                   </div>
 
-                  <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">{job.description}</p>
+                  <p className="text-sm text-text-body max-w-2xl leading-relaxed">{job.description}</p>
 
-                  <div className="flex flex-wrap gap-4 text-xs font-semibold text-slate-500 pt-2">
+                  <div className="flex flex-wrap gap-4 text-xs font-semibold text-navy-muted pt-2">
                     <div className="flex items-center gap-1.5">
                       <Briefcase className="w-4 h-4 text-kis-gold" />
                       <span>{job.department}</span>
@@ -85,7 +85,7 @@ export const VacancyPage = () => {
       {/* Application Modal */}
       {selectedJob && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="max-w-lg w-full bg-white rounded-2xl shadow-2xl overflow-hidden relative border border-slate-200">
+          <div className="max-w-lg w-full bg-bg-secondary rounded-2xl shadow-2xl overflow-hidden relative border border-border-hairline">
             <button
               onClick={() => setSelectedJob(null)}
               className="absolute top-4 right-4 p-2 text-gray-300 hover:text-white transition-colors"
@@ -102,66 +102,66 @@ export const VacancyPage = () => {
               <div className="p-8 text-center space-y-4">
                 <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto" />
                 <h4 className="text-2xl font-bold text-kis-navy font-serif">Application Submitted!</h4>
-                <p className="text-sm text-slate-600">Thank you for applying. Our HR team will contact you shortly.</p>
+                <p className="text-sm text-text-body">Thank you for applying. Our HR team will contact you shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleApply} className="p-6 space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name *</label>
+                  <label className="block text-xs font-bold text-body uppercase mb-1">Full Name *</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-kis-gold text-sm outline-none"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border-hairline focus:ring-2 focus:ring-kis-gold text-sm outline-none"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Email *</label>
+                    <label className="block text-xs font-bold text-body uppercase mb-1">Email *</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-kis-gold text-sm outline-none"
+                      className="w-full px-4 py-2.5 rounded-lg border border-border-hairline focus:ring-2 focus:ring-kis-gold text-sm outline-none"
                       placeholder="your.email@gmail.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number *</label>
+                    <label className="block text-xs font-bold text-body uppercase mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-kis-gold text-sm outline-none"
+                      className="w-full px-4 py-2.5 rounded-lg border border-border-hairline focus:ring-2 focus:ring-kis-gold text-sm outline-none"
                       placeholder="+91 9876543210"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Teaching Experience *</label>
+                  <label className="block text-xs font-bold text-body uppercase mb-1">Teaching Experience *</label>
                   <input
                     type="text"
                     required
                     value={formData.experience}
                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-kis-gold text-sm outline-none"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border-hairline focus:ring-2 focus:ring-kis-gold text-sm outline-none"
                     placeholder="e.g. 4 Years in CBSE School"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Cover Note / Remarks</label>
+                  <label className="block text-xs font-bold text-body uppercase mb-1">Cover Note / Remarks</label>
                   <textarea
                     rows={3}
                     value={formData.resume}
                     onChange={(e) => setFormData({ ...formData, resume: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-kis-gold text-sm outline-none"
+                    className="w-full px-4 py-2.5 rounded-lg border border-border-hairline focus:ring-2 focus:ring-kis-gold text-sm outline-none"
                     placeholder="Briefly state your qualifications and achievements..."
                   />
                 </div>
