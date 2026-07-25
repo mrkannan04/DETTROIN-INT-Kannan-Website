@@ -21,6 +21,12 @@
           } else {
             document.documentElement.setAttribute('data-theme', 'light');
           }
+          var savedFontSize = localStorage.getItem('kis-font-size');
+          if (savedFontSize === 'large') {
+            document.documentElement.style.fontSize = '18px';
+          } else if (savedFontSize === 'xlarge') {
+            document.documentElement.style.fontSize = '20px';
+          }
         } catch (e) {}
       })();
     </script>

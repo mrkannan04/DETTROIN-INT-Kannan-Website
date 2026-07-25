@@ -35,31 +35,53 @@ export const ThemeProvider = ({ children }) => {
     } catch (e) {}
   }, [theme]);
 
-  // Sync accessibility classes on document.body
+  // Sync accessibility classes and root font sizing on documentElement & document.body
   useEffect(() => {
+    const root = document.documentElement;
     const body = document.body;
     
-    // Font size classes
+    // Font size root scaling (scales all rem typography globally)
+    root.classList.remove('font-size-lg', 'font-size-xl');
     body.classList.remove('font-size-lg', 'font-size-xl');
-    if (fontSize === 'large') body.classList.add('font-size-lg');
-    if (fontSize === 'xlarge') body.classList.add('font-size-xl');
-    localStorage.setItem('kis-font-size', fontSize);
 
-    // High contrast class
+    if (fontSize === 'large') {
+      root.classList.add('font-size-lg');
+      body.classList.add('font-size-lg');
+      root.style.fontSize = '18px';
+    } else if (fontSize === 'xlarge') {
+      root.classList.add('font-size-xl');
+      body.classList.add('font-size-xl');
+      root.style.fontSize = '20px';
+    } else {
+      root.style.fontSize = '16px';
+    }
+    try {
+      localStorage.setItem('kis-font-size', fontSize);
+    } catch (e) {}
+
+    // High contrast mode
     if (highContrast) {
       body.classList.add('high-contrast');
+      root.classList.add('high-contrast');
     } else {
       body.classList.remove('high-contrast');
+      root.classList.remove('high-contrast');
     }
-    localStorage.setItem('kis-high-contrast', highContrast);
+    try {
+      localStorage.setItem('kis-high-contrast', String(highContrast));
+    } catch (e) {}
 
-    // Dyslexia font class
+    // Dyslexia font mode
     if (dyslexiaFont) {
       body.classList.add('dyslexia-font');
+      root.classList.add('dyslexia-font');
     } else {
       body.classList.remove('dyslexia-font');
+      root.classList.remove('dyslexia-font');
     }
-    localStorage.setItem('kis-dyslexia-font', dyslexiaFont);
+    try {
+      localStorage.setItem('kis-dyslexia-font', String(dyslexiaFont));
+    } catch (e) {}
 
   }, [fontSize, highContrast, dyslexiaFont]);
 

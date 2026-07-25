@@ -54,17 +54,23 @@
 }
 
 /* Accessibility Utility Overrides */
+html.font-size-lg {
+  font-size: 18px !important;
+}
+html.font-size-xl {
+  font-size: 20px !important;
+}
 body.font-size-lg {
   font-size: 1.125rem;
 }
 body.font-size-xl {
   font-size: 1.25rem;
 }
-body.dyslexia-font {
+html.dyslexia-font, body.dyslexia-font, body.dyslexia-font * {
   font-family: 'Lexend', 'Inter', sans-serif !important;
   letter-spacing: 0.04em !important;
-  word-spacing: 0.1em !important;
-  line-height: 1.8 !important;
+  word-spacing: 0.08em !important;
+  line-height: 1.75 !important;
 }
 body.high-contrast {
   --bg-primary: #000000 !important;
