@@ -7,6 +7,7 @@ import { FeatureCards } from '../components/home/FeatureCards';
 import { StudentShowcase } from '../components/home/StudentShowcase';
 import { SchoolDashboardWidget } from '../components/home/SchoolDashboardWidget';
 import { CampusVirtualTour } from '../components/home/CampusVirtualTour';
+import { LearningDashboardPreview } from '../components/home/LearningDashboardPreview';
 import { AchievementsShowcase } from '../components/home/AchievementsShowcase';
 import { TestimonialCarousel } from '../components/home/TestimonialCarousel';
 import { Link } from 'react-router-dom';
@@ -36,7 +37,10 @@ export const Home = () => {
       {/* 7. Interactive Virtual Campus Tour */}
       <CampusVirtualTour />
 
-      {/* 8. Student Showcase */}
+      {/* 8. Adaptive Learning Dashboard Concept */}
+      <LearningDashboardPreview />
+
+      {/* 9. Student Showcase */}
       <StudentShowcase />
 
       {/* 9. Achievements & Awards Showcase */}
