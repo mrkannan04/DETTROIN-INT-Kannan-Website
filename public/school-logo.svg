@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="95" fill="#0B2545" stroke="#F5A623" stroke-width="8"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M100 25 L160 55 L160 115 L100 165 L40 115 L40 55 Z" fill="#071A32" stroke="#F5A623" stroke-width="4"/>
+  <!-- Crown / Star motif -->
+  <path d="M100 45 L112 65 L135 65 L117 78 L124 100 L100 86 L76 100 L83 78 L65 65 L88 65 Z" fill="#F5A623"/>
+  <!-- KIS Text -->
+  <text x="100" y="132" font-family="'Poppins', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">KIS</text>
+  <text x="100" y="150" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#F5A623" text-anchor="middle" letter-spacing="3">ALIGARH</text>
+</svg>
