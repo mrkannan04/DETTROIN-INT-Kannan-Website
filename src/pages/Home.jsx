@@ -8,6 +8,7 @@ import { StudentShowcase } from '../components/home/StudentShowcase';
 import { SchoolDashboardWidget } from '../components/home/SchoolDashboardWidget';
 import { CampusVirtualTour } from '../components/home/CampusVirtualTour';
 import { LearningDashboardPreview } from '../components/home/LearningDashboardPreview';
+import { SustainabilityWidget } from '../components/home/SustainabilityWidget';
 import { AchievementsShowcase } from '../components/home/AchievementsShowcase';
 import { TestimonialCarousel } from '../components/home/TestimonialCarousel';
 import { Link } from 'react-router-dom';
@@ -42,6 +43,9 @@ export const Home = () => {
 
       {/* 9. Student Showcase */}
       <StudentShowcase />
+
+      {/* 10. Green Campus Sustainability Dashboard */}
+      <SustainabilityWidget />
 
       {/* 9. Achievements & Awards Showcase */}
       <AchievementsShowcase />

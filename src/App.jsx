@@ -6,6 +6,7 @@ import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { CursorFollower } from './components/common/CursorFollower';
 import { AiAdmissionsChat } from './components/common/AiAdmissionsChat';
+import { AccessibilityToolbar } from './components/common/AccessibilityToolbar';
 import { AppRoutes } from './routes/AppRoutes';
 import { AppLoadingSplash } from './components/common/AppLoadingSplash';
 
@@ -17,6 +18,9 @@ export default function App() {
           <div className="flex flex-col min-h-screen font-sans bg-primary text-body selection:bg-kis-gold selection:text-kis-navy transition-colors duration-300">
             {/* Desktop Cursor Accent */}
             <CursorFollower />
+
+            {/* Accessibility Control Toolbar */}
+            <AccessibilityToolbar />
 
             {/* Sticky Condensing Header */}
             <Header />
