@@ -5,7 +5,7 @@
 | Field | Details |
 |---|---|
 | **Full Name** | _[KANNAN R]_ |
-| **Intern ID** | _[Not Assigned]_ |
+| **Intern ID** | _[Intern-kannan-website]_ |
 | **Email Address** | _[rkannan190204@gmail.com]_ |
 | **GitHub Username** | _[https://github.com/mrkannan04]_ |
 | **Selected Website** | [Krishna International School, Aligarh](https://kisaligarh.com/) |
