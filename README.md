@@ -9,7 +9,7 @@
 | **Email Address** | _[rkannan190204@gmail.com]_ |
 | **GitHub Username** | _[https://github.com/mrkannan04]_ |
 | **Selected Website** | [Krishna International School, Aligarh](https://kisaligarh.com/) |
-| **Live Demo Link** | _[https://dettroin-int-kannan-website.netlify.app/]_ |
+| **Live Demo Link** | _[https://dettroin-int-kannan-website.vercel.app/]_ |
 
 ---
 
