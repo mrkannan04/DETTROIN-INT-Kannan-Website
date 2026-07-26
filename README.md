@@ -39,9 +39,19 @@
 - Added a **Student Showcase** section (oval-framed portraits, colored backgrounds, floating decorative accents) matching the original site's homepage
 - Populated every inner route (~35–40 pages: About, Admission, Academics, Co-Curricular, Events, Gallery, etc.) with real structured demo content instead of blank placeholders
 - Replaced all real external links/QR codes/portal redirects with internal, self-contained demo pages — no dependency on or redirect to the original live site
-- Added downloadable sample PDF documents (Fee Structure, Mandatory Disclosure, Admission Brochure)
+- Added downloadable sample PDF documents (Fee Structure, Mandatory Disclosure, Admission Brochure) with real multi-section content
 - Added new feature enhancements inspired by other school websites: testimonial carousel, achievements showcase, faculty directory, and a school info/notice dashboard widget
 - Fully responsive (mobile-first) layout matching the original site's breakpoints and mobile menu behavior
+- Elevated the visual identity to a **premium design system**: refined ivory/navy/antique-gold/emerald color palette, serif+sans typography pairing, and a signature easing curve applied consistently across every animation
+- Implemented a **Dark Mode / Light Mode toggle** (theme persisted via `localStorage`, no flash-of-wrong-theme on load) using a centralized CSS-variable token system so every component shares one source of truth for color
+- Audited and fixed **cross-theme contrast regressions** (Stats Counter, hero overlay, notices ticker) so text, icons, and cards remain fully legible in both themes without affecting photos, which stay untouched by the theme switch
+- Fixed a **broken/patchy hero overlay** so the text-legibility gradient is a clean full-bleed treatment on every hero banner, not a partial box artifact
+- Fixed **non-functional breadcrumb navigation** site-wide by correcting the shared `Breadcrumb` component (was rendering as plain text instead of links)
+- Fixed **non-functional filter/category tabs** (Events, Gallery, Academics) by wiring real state-driven filtering logic into a shared `<FilterTabs>` component instead of static, decorative buttons
+- Eliminated **flash-of-blank-white image loading** by adding preload hints, themed placeholder backgrounds, and fade-in transitions across hero and gallery images
+- Resolved **production deployment issues** (Netlify/Vercel) by adding proper SPA rewrite/redirect rules, auditing case-sensitive asset paths, and verifying environment variable configuration — so behavior in production now matches local development
+- Added **new forward-looking feature previews**: AI admissions assistant (chat widget), personalized learning dashboard, accessibility mode toggle (font size, high contrast, dyslexia-friendly font), and a sustainability/green-campus metrics widgetile menu behavior
+  
 
 ---
 
